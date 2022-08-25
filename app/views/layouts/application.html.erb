@@ -25,8 +25,12 @@
     
   
         <% if user_signed_in? %>
-         
-              <%= render 'shared/nav_dash' %>
+            <% if (controller_name == "profiles" && action_name == "future") || (controller_name == "profiles" && action_name == "passate") ||  (controller_name == "profiles" && action_name == "settimana")  %>
+                    <%= render 'shared/nav_profilo_pubblico' %>
+              <% else %>
+                          <%= render 'shared/nav_dash' %>
+                
+            <% end %>
         <% else %>
               <% if @profile %>
             <%= render 'shared/nav_profilo_pubblico' %>

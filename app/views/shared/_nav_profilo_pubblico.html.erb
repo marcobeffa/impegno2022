@@ -64,7 +64,7 @@
 
 
       <div class="flex items-center space-x-4 mx-4">
-                            <img class="w-10 h-10 rounded-full" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/f3/e1/37/museo-dell-orso-marsicano.jpg?w=1200&h=-1&s=1" alt="">
+                            <img class="w-10 h-10 rounded-full" src="<% if @profile.avatar_url.size > 0%> <%= @profile.avatar_url %><% else %>https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg<% end %>" alt="">
                             <div class="font-medium dark:text-white">
                                 <div><%= @profile.username %></div>
                                 <div class="text-sm text-gray-500 dark:text-gray-400">Joined <%= @profile.created_at.strftime("%d/%m/%Y") %></div>
