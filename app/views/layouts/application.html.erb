@@ -13,8 +13,7 @@
   </head>
 
   <body>
-    <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-      
+  
       <% if notice %>
          <p class="notice"><%= notice %></p>
       <% end %>
@@ -22,7 +21,8 @@
          <p class="alert"><%= alert %></p>
       <% end %>
        
-      
+        <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    
   
         <% if user_signed_in? %>
          
@@ -34,9 +34,16 @@
                   <%= render 'shared/nav_pubblico' %>
               <%end %>
           <% end %>
-      
-        <%= yield %>
+          </div>
 
+          
+           <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    
+          
+              <%= yield %>  
+
+            </div> 
+         
     
 
     </div>
