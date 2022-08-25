@@ -25,17 +25,14 @@
       
   
         <% if user_signed_in? %>
-          <% if current_user.profile %>
+         
               <%= render 'shared/nav_dash' %>
-            <% elsif @profile %>
+        <% else %>
+              <% if @profile %>
             <%= render 'shared/nav_profilo_pubblico' %>
-            <% else %>
+            <% else%>
                   <%= render 'shared/nav_pubblico' %>
-          <% end %>
-        <% elsif @profile %>
-            <%= render 'shared/nav_profilo_pubblico' %>
-            <% else %>
-                  <%= render 'shared/nav_pubblico' %>
+              <%end %>
           <% end %>
       
         <%= yield %>

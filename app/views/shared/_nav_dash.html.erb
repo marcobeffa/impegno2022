@@ -73,56 +73,57 @@
 
     
     <div class="lg:mt-10">
-     <!--drop down start-->
-          <div class=" block  inline-block px-4 py-2 leading-none rounded no-underline text-gray hover:text-gray-900 hover:bg-white mt-4 lg:mt-0 font-medium tracking-wide ">
-            <div class="relative" data-controller="dropdown">
-                <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none">
-                  <span class="appearance-none flex items-center inline-block text-gray-800">
-                    <% if current_user.profile %>
-                      <div class="flex items-center space-x-4 mx-4">
-                            <img class="w-10 h-10 rounded-full" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/f3/e1/37/museo-dell-orso-marsicano.jpg?w=1200&h=-1&s=1" alt="">
-                            <div class="font-medium dark:text-white">
-                                <div><%= current_user.profile.username %></div>
-                                <div class="text-sm text-gray-500 dark:text-gray-400">Joined <%= current_user.profile.created_at.strftime("%d/%m/%Y") %></div>
-                            </div>
+      <!--drop down start-->
+      <div class=" block  inline-block px-4 py-2 leading-none rounded no-underline text-gray hover:text-gray-900 hover:bg-white mt-4 lg:mt-0 font-medium tracking-wide ">
+        <div class="relative" data-controller="dropdown">
+            <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none">
+              <span class="appearance-none flex items-center inline-block text-gray-800">
+                <% if current_user.profile %>
+                  <div class="flex items-center space-x-4 mx-4">
+                        <img class="w-10 h-10 rounded-full" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/f3/e1/37/museo-dell-orso-marsicano.jpg?w=1200&h=-1&s=1" alt="">
+                        <div class="font-medium dark:text-white">
+                            <div><%= current_user.profile.username %></div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Joined <%= current_user.profile.created_at.strftime("%d/%m/%Y") %></div>
                         </div>
-                    <% else %>
-                     <span aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-blue-400 ">Menù</span>      
-                    <% end %>  
-                   
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-4 w-4"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
-                  </span>
-                </div>
-                <div data-dropdown-target="menu" class="absolute mt-2 hidden" style="z-index:60;">
-                  <div class="bg-white shadow rounded border overflow-hidden">
-                       
-                     <% if current_user.profile %>
-                          <%= link_to profile_path(current_user), class: "hover:bg-indigo-50 hover:text-indigo-600 text-gray-600 no-underline block py-3 px-4 flex items-center group rounded-t" do %>
-                                    <%#= render_svg "icons/user" ,styles: "w-5 h-5 fill-current group-hover:text-indigo-600 text-gray-600 mr-3" %>
-                                    Profilo
-                                  <% end %>
-                    <% else %>
-                      <%= link_to new_profile_path(), class: "hover:bg-indigo-50 hover:text-indigo-600 text-gray-600 no-underline block py-3 px-4 flex items-center group rounded-t" do %>
-                                    <%#= render_svg "icons/user" ,styles: "w-5 h-5 fill-current group-hover:text-indigo-600 text-gray-600 mr-3" %>
-                                    Profilo
-                                  <% end %>
-                    <% end %>
-                       
-                     
-        <%= button_to(
-          "Esci",
-          destroy_user_session_path,
-          method: :delete,
-          class:"inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300"
-        ) %>
-               
+                    </div>
+                <% else %>
+                  <span aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-blue-400 ">Menù</span>      
+                <% end %>  
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-4 w-4"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
+              </span>
+            </div>
+            <div data-dropdown-target="menu" class="absolute mt-2 hidden" style="z-index:60;">
+              <div class="bg-white shadow rounded border overflow-hidden">
                     
-                  </div>
-                </div>
+                  <% if current_user.profile %>
+                      <%= link_to profile_path(current_user), class: "hover:bg-indigo-50 hover:text-indigo-600 text-gray-600 no-underline block py-3 px-4 flex items-center group rounded-t" do %>
+                                <%#= render_svg "icons/user" ,styles: "w-5 h-5 fill-current group-hover:text-indigo-600 text-gray-600 mr-3" %>
+                                Profilo
+                              <% end %>
+                <% else %>
+                  <%= link_to new_profile_path(), class: "hover:bg-indigo-50 hover:text-indigo-600 text-gray-600 no-underline block py-3 px-4 flex items-center group rounded-t" do %>
+                                <%#= render_svg "icons/user" ,styles: "w-5 h-5 fill-current group-hover:text-indigo-600 text-gray-600 mr-3" %>
+                                Profilo
+                              <% end %>
+                <% end %>
+                    
+                  
+                      <%= button_to(
+                    "Esci",
+                    destroy_user_session_path,
+                    method: :delete,
+                    class:"inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+                  ) %>
+            
+                
               </div>
             </div>
-          <!--drop down end --->
           </div>
+        </div>
+      <!--drop down end --->
+      </div>
+    </div>
   <% else %>
 
 
