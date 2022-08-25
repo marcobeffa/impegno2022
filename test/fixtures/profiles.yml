@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  title: MyString
+  description: MyText
+  avatar_url: MyText
+  name: MyString
+  surname: MyString
+  username: MyString
+  email: MyString
+  phone: MyString
+  smartphone: MyString
+  prezzo_orario: 9.99
+  active_profile_id: 1
+  team_id: 1
+  referente_profile_id: 1
+
+two:
+  user: two
+  title: MyString
+  description: MyText
+  avatar_url: MyText
+  name: MyString
+  surname: MyString
+  username: MyString
+  email: MyString
+  phone: MyString
+  smartphone: MyString
+  prezzo_orario: 9.99
+  active_profile_id: 1
+  team_id: 1
+  referente_profile_id: 1

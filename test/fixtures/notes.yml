@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profile: one
+  name: MyString
+  description: MyText
+  body: MyText
+  note_type: 1
+  euro_pagati: 9.99
+  euro_ricevuti: 9.99
+  data_start: 2022-08-23 13:04:06
+  data_end: 2022-08-23 13:04:06
+  lat: 9.99
+  long: 9.99
+  google_maps_url: MyText
+  stato_attention: 1
+  visibility: 1
+  pubblica: false
+
+two:
+  profile: two
+  name: MyString
+  description: MyText
+  body: MyText
+  note_type: 1
+  euro_pagati: 9.99
+  euro_ricevuti: 9.99
+  data_start: 2022-08-23 13:04:06
+  data_end: 2022-08-23 13:04:06
+  lat: 9.99
+  long: 9.99
+  google_maps_url: MyText
+  stato_attention: 1
+  visibility: 1
+  pubblica: false

@@ -1,0 +1,148 @@
+.h1-font { 
+  display: block;
+  font-size: 3em;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 900;
+  letter-spacing: 1.2;
+  line-height: 1;
+  text-align: center;
+  color: #4b9beb;
+  font-family: 'Nunito Sans', sans-serif;
+}
+.h2-font { 
+  display: block;
+  font-size: 2.5em;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 700;
+  letter-spacing: 1;
+  line-height: 1.2;
+  text-align: center;
+  color: black;
+  font-family: 'Nunito Sans', sans-serif;
+}
+.h3-font { 
+  display: block;
+  font-size: 2em;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 600;
+  letter-spacing: 1;
+  line-height: 1.2;
+  text-align: center;
+  color: black;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.h4-font { 
+  display: block;
+  font-size: 1.5em;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 600;
+  letter-spacing: 1;
+  line-height: 1.2;
+  text-align: center;
+  color: black;
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: italic;
+}
+
+.h5-font { 
+  display: block;
+  font-size: 1em;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 300;
+  letter-spacing: 1;
+  line-height: 1.2;
+  text-align: center;
+  color: black;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #3074a6;
+
+}
+.h6-font { 
+  display: block;
+  font-size: 1em;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 500;
+  letter-spacing: 1;
+  line-height: 1.2;
+  text-align: center;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+    color: #3d6cc1;
+}
+
+.p-font { 
+   display: block;
+  font-size: 1.2em;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 400;
+  letter-spacing: 1;
+  line-height: 1.2;
+  text-align: center;
+  color: black;
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: normal;
+}
+
+ .logo-font-1 { 
+   display: block;
+   margin-right:5px;
+  font-size: 2em;
+  font-weight: 900;
+  letter-spacing: 1;
+  line-height: 1.2;
+  text-align: center;
+  color: black;
+  font-family: 'Dosis', sans-serif;
+  font-style: normal;
+}
+
+.logo-font-2 { 
+  display: block;
+ font-size: 2em;
+ font-weight: 900;
+ letter-spacing: 1;
+ line-height: 1.2;
+ text-align: center;
+ color: #3A84E6;
+ font-family: 'Dosis', sans-serif;
+ font-style: normal;
+}
+
+.logo-sfumata {
+  color: #3A84E6;;
+}
+.waves-color-1 {
+color: #61c2d4;
+}
+.waves-color-2 {
+color:    #83cee2;
+}
+.waves-color-3 {
+color:   #9ed6e2;
+}
+.waves-color-4 {
+color:  #c0e4ee;
+}

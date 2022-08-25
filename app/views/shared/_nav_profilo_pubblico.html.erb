@@ -1,0 +1,78 @@
+<div class="lg:flex">
+  
+  
+  
+      <div class="m-8">
+        <ul class="list-none flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+         
+            
+         
+          <% if @profile  %>
+        
+            <li class="mr-2">
+
+             <% if (controller_name == "profiles" && action_name == "passate") || (controller_name == "profiles" && action_name == "future")  %>
+                <%= link_to  future_profile_path(@profile), class:"btn btn-tertiary outline" do%>
+                  <img src="https://img.icons8.com/external-creatype-filed-outline-colourcreatype/64/000000/external-eyes-basic-creatype-filed-outline-colourcreatype.png" style="height:40px;">
+                  <% end %>
+              <% else %>
+                  <%= link_to  future_profile_path(@profile), class:"" do%>
+                    <img src="https://img.icons8.com/external-creatype-filed-outline-colourcreatype/64/000000/external-eyes-basic-creatype-filed-outline-colourcreatype.png" style="height:40px;">
+                  <% end %>
+              <% end %>
+                
+            
+            </li>
+            <li class="mr-2">
+
+
+             <% if (controller_name == "profiles" && action_name == "settimana")   %>
+                 <%= link_to  settimana_profile_path(@profile), class:"btn btn-tertiary outline" do%>
+            <img src="https://img.icons8.com/fluency/48/000000/week-view.png" style="height:40px;"/>
+            
+            <% end %>
+              <% else %>
+                   <%= link_to  settimana_profile_path(@profile), class:"" do%>
+            <img src="https://img.icons8.com/fluency/48/000000/week-view.png" style="height:40px;"/>
+            
+            <% end %>
+              <% end %>
+        
+            
+            </li>
+
+             <% end %>
+        </ul>
+      </div>
+   <div class="flex">
+    <div class="mt-6">
+    <%= image_tag '1impegno_logo.png', style:"height:60px;" %>
+   </div>
+    <div class="m-4">
+    <%= link_to root_path  do %>
+        <h2 class="text-black">1mpegno.it</h2>
+        <p class="text-black">Stai guardando il calendario di:</p>
+        <%end%>
+    </div>
+  </div>
+  
+ 
+  
+
+<% if @profile  %>
+  
+
+
+      <div class="flex items-center space-x-4 mx-4">
+                            <img class="w-10 h-10 rounded-full" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/f3/e1/37/museo-dell-orso-marsicano.jpg?w=1200&h=-1&s=1" alt="">
+                            <div class="font-medium dark:text-white">
+                                <div><%= @profile.username %></div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">Joined <%= @profile.created_at.strftime("%d/%m/%Y") %></div>
+                            </div>
+                        </div>
+   <% end %>
+  
+</div>
+
+
+

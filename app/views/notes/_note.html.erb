@@ -1,0 +1,78 @@
+<div id="<%= dom_id note %>">
+  <p>
+    <strong>Profile:</strong>
+    <%= note.profile_id %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= note.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= note.description %>
+  </p>
+
+  <p>
+    <strong>Body:</strong>
+   <article class="prose prose-img:rounded-xl prose-headings:underline prose-a:text-blue-600">
+                  <%= markdown(note.body) if note.body %> 
+  </p>
+
+  <p>
+    <strong>Note type:</strong>
+    <%= note.note_type %>
+  </p>
+
+  <p>
+    <strong>Euro pagati:</strong>
+    <%= note.euro_pagati %>
+  </p>
+
+  <p>
+    <strong>Euro ricevuti:</strong>
+    <%= note.euro_ricevuti %>
+  </p>
+
+  <p>
+    <strong>Data start:</strong>
+    <%= note.data_start %>
+  </p>
+
+  <p>
+    <strong>Data end:</strong>
+    <%= note.data_end %>
+  </p>
+
+  <p>
+    <strong>Lat:</strong>
+    <%= note.lat %>
+  </p>
+
+  <p>
+    <strong>Long:</strong>
+    <%= note.long %>
+  </p>
+
+  <p>
+    <strong>Google maps url:</strong>
+    <%= note.google_maps_url %>
+  </p>
+
+  <p>
+    <strong>Stato attention:</strong>
+    <%= note.stato_attention %>
+  </p>
+
+  <p>
+    <strong>Visibility:</strong>
+    <%= note.visibility %>
+  </p>
+
+  <p>
+    <strong>Pubblica:</strong>
+    <%= note.pubblica %>
+  </p>
+
+</div>

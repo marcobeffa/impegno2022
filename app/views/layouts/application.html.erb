@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Impegno2022</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= favicon_link_tag asset_path("1impegno_logo.png") %>
+
+  </head>
+
+  <body>
+    <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      
+      <% if notice %>
+         <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+         <p class="alert"><%= alert %></p>
+      <% end %>
+       
+      
+  
+        <% if user_signed_in? %>
+          <% if current_user.profile %>
+              <%= render 'shared/nav_dash' %>
+            <% elsif @profile %>
+            <%= render 'shared/nav_profilo_pubblico' %>
+            <% else %>
+                  <%= render 'shared/nav_pubblico' %>
+          <% end %>
+        <% elsif @profile %>
+            <%= render 'shared/nav_profilo_pubblico' %>
+            <% else %>
+                  <%= render 'shared/nav_pubblico' %>
+          <% end %>
+      
+        <%= yield %>
+
+    
+
+    </div>
+  </body>
+</html>

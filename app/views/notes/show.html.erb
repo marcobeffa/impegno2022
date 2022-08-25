@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @note %>
+
+<div>
+  <%= link_to "Edit this note", edit_note_path(@note), class:"btn btn-primary outline m-2" %> 
+  <%= link_to "Back to notes", root_path, class:"btn btn-primary outline m-2" %>
+
+
+  <%= button_to "Destroy this note", @note, method: :delete , class:"btn btn-danger m-2"%>
+</div>
+
+
+<!--- https://www.b4web.biz/181/aggiungere-tramite-link-un-evento-su-google-calendar-->

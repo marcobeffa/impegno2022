@@ -1,0 +1,34 @@
+/* Entry point for your PostCSS build */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+/*
+ * Jumpstart Pro default styles
+ * Remove these if you'd like to use TailwindUI which expects a clean slate
+*/
+
+@import "components/input";
+@import "components/base";
+@import "components/actiontext";
+@import "components/alert";
+@import "components/animation";
+@import "components/announcements";
+@import "components/avatars";
+@import "components/buttons";
+@import "components/code";
+@import "components/connected_accounts";
+@import "components/direct_uploads";
+@import "components/docs";
+
+@import "components/icons";
+@import "components/iframe";
+@import "components/nav";
+@import "components/pagination";
+@import "components/tabs";
+
+@import "components/typography";
+@import "components/util";
+@import "components/textbrand";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Montserrat:wght@300&family=Nunito+Sans:ital,wght@0,200;0,400;0,600;0,800;0,900;1,300;1,600&display=swap');

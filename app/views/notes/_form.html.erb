@@ -1,0 +1,118 @@
+<%= form_with(model: note) do |form| %>
+  <% if note.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+        <% note.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :profile_id, style: "display: block" %>
+    <%= form.text_field :profile_id %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_area :body %>
+  </div>
+
+
+ <div>
+    <%= form.label :note_type, style: "display: block" %>
+     <% if params[:note_type] %>
+     
+          <%= form.hidden_field :note_type, value: params[:note_type], required: true %>   
+     <div class="flex">
+        <b>  <%= render_svg "notes/#{params[:note_type]}", styles: "w-5 h-5 fill-current group-hover:text-indigo-600 text-gray-600 mr-3" %>
+               <%= params[:note_type] %></b> 
+               </div>
+        <% else %>
+        
+          <%= form.select :note_type, options_for_select(Note.note_types.map {|k, v| [k.titleize, k]},  selected: @note.note_type), {:prompt => 'Tipo di nota'}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", required: true %>
+        <% end %>
+
+  
+  </div>
+
+ 
+
+  <div>
+    <%= form.label :euro_pagati, style: "display: block" %>
+    <%= form.text_field :euro_pagati %>
+  </div>
+
+  <div>
+    <%= form.label :euro_ricevuti, style: "display: block" %>
+    <%= form.text_field :euro_ricevuti %>
+  </div>
+
+  <div>
+    <%= form.label :data_start, style: "display: block" %>
+    <% if params[:data_start]  %>
+         <%= form.datetime_field :data_start, value: params[:data_start] + "T12:00" %>
+    <% else %>
+     <%= form.datetime_field :data_start  %>
+    <% end %>
+ 
+  </div>
+
+  <div>
+    <%= form.label :data_end, style: "display: block" %>
+
+    <% if params[:data_start]  %>
+         <%= form.datetime_field :data_end, value: params[:data_start] + "T12:00" %>
+    <% else %>
+     <%= form.datetime_field :data_end  %>
+    <% end %>
+   
+  </div>
+
+  <div>
+    <%= form.label :lat, style: "display: block" %>
+    <%= form.text_field :lat %>
+  </div>
+
+  <div>
+    <%= form.label :long, style: "display: block" %>
+    <%= form.text_field :long %>
+  </div>
+
+  <div>
+    <%= form.label :google_maps_url, style: "display: block" %>
+    <%= form.text_area :google_maps_url %>
+  </div>
+
+  <div>
+    <%= form.label :stato_attention, style: "display: block" %>
+    <%= form.number_field :stato_attention %>
+  </div>
+
+  <div>
+    <%= form.label :visibility, style: "display: block" %>
+    <%= form.number_field :visibility %>
+  </div>
+
+  <div>
+    <%= form.label :pubblica, style: "display: block" %>
+    <%= form.check_box :pubblica %>
+  </div>
+
+  <div>
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>
