@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
      # @notes = current_user.profile.notes.where(:start => @data_start.beginning_of_day..@data_start.end_of_day)   
      # @scheduledates = current_user.profiles.first.scheduledates.where(:start => @data_start.beginning_of_day..@data_start.end_of_day)   
     end 
-    @notes = @profile.notes.where(note_type: ["data", "slot"], pubblica: true).where("data_start < ?", @data_start.beginning_of_day ) 
+    @notes = @profile.notes.where(note_type: ["data"], pubblica: true).where("data_start < ?", @data_start.beginning_of_day ) 
 
   end
 
@@ -47,20 +47,23 @@ class ProfilesController < ApplicationController
       if day < 10 
         day =   "0" + day.to_s
       end  
-      @data_start = DateTime.new(year.to_i,month.to_i,day.to_i) 
+      @data_start = DateTime.new(year.to_i,month.to_i,day.to_i).beginning_of_week 
       
       @data_f = year.to_s + "-" + month.to_s  + "-" + day.to_s   
     else
-      @data_start = DateTime.now
+      @data_start = DateTime.now.beginning_of_week 
       @data_f = DateTime.now.strftime("%Y-%m-%d")
      # @notes = current_user.profile.notes.where(:start => @data_start.beginning_of_day..@data_start.end_of_day)   
      # @scheduledates = current_user.profiles.first.scheduledates.where(:start => @data_start.beginning_of_day..@data_start.end_of_day)   
     end 
-    @notes = @profile.notes.where(note_type: ["data", "slot"], pubblica: true ).where("data_start > ?", @data_start.beginning_of_day ) 
+
+
+    @notes = @profile.notes.where(note_type: "data", pubblica: true ).where("data_start > ?", @data_start.beginning_of_day ) 
 
   end
 
   def settimana
+
     if params[:date]
       date = params[:date]
       year = date[0, 4].to_i  
@@ -72,17 +75,24 @@ class ProfilesController < ApplicationController
       if day < 10 
         day =   "0" + day.to_s
       end  
-      @data_start = DateTime.new(year.to_i,month.to_i,day.to_i) 
+      @data_start = DateTime.new(year.to_i,month.to_i,day.to_i).beginning_of_week(start_day = :monday)
       
       @data_f = year.to_s + "-" + month.to_s  + "-" + day.to_s   
     else
-      @data_start = DateTime.now
+      @data_start = DateTime.now.beginning_of_week(start_day = :monday)
       @data_f = DateTime.now.strftime("%Y-%m-%d")
      
      # @scheduledates = current_user.profiles.first.scheduledates.where(:start => @data_start.beginning_of_day..@data_start.end_of_day)   
     end 
-    @notes = @profile.notes.where(:start => @data_start.beginning_of_week..(@data_start.end_of_week + 23.hour))   
    
+
+    @wkBegin = @data_start
+    @wkEnd = (@data_start + 7.day).end_of_day
+    @notes = @profile.notes.where(:start => @data_start.beginning_of_week..(@data_start.end_of_week + 23.hour))   
+    @datas = @profile.notes.where(note_type: "data").where('data_start > ? AND data_end < ?',  @wkBegin, @wkEnd)  
+    
+    
+    @new_data = params[:new_data]
   end
   # GET /profiles/new
   def new

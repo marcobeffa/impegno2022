@@ -1,4 +1,5 @@
-<%= form_with(model: note) do |form| %>
+<div class="lg:w-96">
+<%= form_with(model: note, class:"lg:w-96") do |form| %>
   <% if note.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
@@ -13,22 +14,24 @@
 
   <div>
     <%= form.label :profile_id, style: "display: block" %>
-    <%= form.text_field :profile_id %>
+    <%= form.text_field :profile_id, class:"input" %>
   </div>
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name, required: true %>
+    <%= form.text_field :name, required: true, class:"input" %>
   </div>
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class:"input" %>
   </div>
 
   <div>
+   <a href="https://pandao.github.io/editor.md/en.html" target="_blank">Vai all'editor</a>
+  
     <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class:"input" %>
   </div>
 
 
@@ -53,20 +56,20 @@
 
   <div>
     <%= form.label :euro_pagati, style: "display: block" %>
-    <%= form.text_field :euro_pagati %>
+    <%= form.text_field :euro_pagati, class:"input" %>
   </div>
 
   <div>
     <%= form.label :euro_ricevuti, style: "display: block" %>
-    <%= form.text_field :euro_ricevuti %>
+    <%= form.text_field :euro_ricevuti, class:"input" %>
   </div>
 
   <div>
     <%= form.label :data_start, style: "display: block" %>
     <% if params[:data_start]  %>
-         <%= form.datetime_field :data_start, value: params[:data_start] + "T12:00" %>
+         <%= form.datetime_field :data_start, value: params[:data_start] + "T12:00", class:"input" %>
     <% else %>
-     <%= form.datetime_field :data_start  %>
+     <%= form.datetime_field :data_start, class:"input"  %>
     <% end %>
  
   </div>
@@ -75,39 +78,39 @@
     <%= form.label :data_end, style: "display: block" %>
 
     <% if params[:data_start]  %>
-         <%= form.datetime_field :data_end, value: params[:data_start] + "T12:00" %>
+         <%= form.datetime_field :data_end, value: params[:data_start] + "T12:00", class:"input" %>
     <% else %>
-     <%= form.datetime_field :data_end  %>
+     <%= form.datetime_field :data_end, class:"input"  %>
     <% end %>
    
   </div>
 
   <div>
     <%= form.label :lat, style: "display: block" %>
-    <%= form.text_field :lat %>
+    <%= form.text_field :lat, class:"input" %>
   </div>
 
   <div>
     <%= form.label :long, style: "display: block" %>
-    <%= form.text_field :long %>
+    <%= form.text_field :long, class:"input" %>
   </div>
 
   <div>
     <%= form.label :google_maps_url, style: "display: block" %>
-    <%= form.text_area :google_maps_url %>
+    <%= form.text_area :google_maps_url, class:"input" %>
   </div>
 
   <div>
     <%= form.label :stato_attention, style: "display: block" %>
-    <%= form.number_field :stato_attention %>
+    <%= form.number_field :stato_attention, class:"input" %>
   </div>
 
   <div>
     <%= form.label :visibility, style: "display: block" %>
-    <%= form.number_field :visibility %>
+    <%= form.number_field :visibility , class:"input"%>
   </div>
 
-  <div>
+  <div class="m-8">
     <%= form.label :pubblica, style: "display: block" %>
     <%= form.check_box :pubblica %>
   </div>
@@ -116,3 +119,4 @@
     <%= form.submit class:"btn btn-secondary" %>
   </div>
 <% end %>
+</div>
