@@ -32,7 +32,9 @@ class ProfilesController < ApplicationController
      # @scheduledates = current_user.profiles.first.scheduledates.where(:start => @data_start.beginning_of_day..@data_start.end_of_day)   
     end 
     @notes = @profile.notes.where(note_type: ["data"], pubblica: true).where("data_start < ?", @data_start.beginning_of_day ) 
-
+    if @notes
+      @notes =  @notes.order(data_start: :desc)
+    end 
   end
 
   def future
