@@ -1,0 +1,2 @@
+module NoteslotsHelper
+end

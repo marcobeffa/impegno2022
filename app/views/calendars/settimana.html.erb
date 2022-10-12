@@ -1,0 +1,267 @@
+<% if action_name != "passate" && action_name != "future" && action_name != "settimana" %>
+         
+  <%= render 'calendars/nav_cal' %> 
+             
+<% else %>  
+ CALENDARIO: <%= @calendar.name %>  
+<% end %>         
+  <div class="mb-4 text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+      <ul class="list-none flex flex-wrap -mb-px">
+        
+    <!--- menù dashboard-->
+             
+              
+               <% if controller_name == "calendars" && action_name == "passate" %>
+                <li class="mr-2">
+                  <%= link_to 'Passate', passate_calendar_path(@calendar.id), class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                  
+                </li>
+              <% else %>
+                <li class="mr-2">
+                  <%= link_to 'Passate', passate_calendar_path(@calendar.id), class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+                </li>
+                
+              <% end %>
+             <% if  controller_name == "calendars" && action_name == "future"%>
+                <li class="mr-2">
+                  <%= link_to 'Future', future_calendar_path(@calendar.id), class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                  
+                  
+                </li>
+              <% else %>
+                <li class="mr-2">
+                  <%= link_to 'Future', future_calendar_path(@calendar.id),  class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+                </li>
+              
+              <% end %>
+               <% if  controller_name == "calendars" && action_name == "settimana"%>
+                <li class="mr-2">
+                  <%= link_to 'Settimana', settimana_calendar_path(@calendar.id), class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                  
+                  
+                </li>
+              <% else %>
+                <li class="mr-2">
+                  <%= link_to 'Settimana', settimana_calendar_path(@calendar.id),  class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+                </li>
+              
+              <% end %>
+        
+          
+            
+            <% if user_signed_in? %>
+               <% if current_user.profile %>
+              
+          
+            
+                <% if [@calendar.profile_id,@calendar.responsabile_profile_id].include?(current_user.profile.id) %>
+                <% if controller_name == "calendars" && action_name == "pastslot" %>
+                    <li class="mr-2">
+                      <%= link_to 'Private Passate', pastslot_calendar_path, class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                      
+                    </li>
+                  <% else %>
+                    <li class="mr-2">
+                      <%= link_to 'Private Passate', pastslot_calendar_path, class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+                    </li>
+                    
+                  <% end %>
+                <% if  controller_name == "calendars" && action_name == "show"%>
+                    <li class="mr-2">
+                      <%= link_to 'Private Future', calendar_path(@calendar.id), class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                      
+                      
+                    </li>
+                  <% else %>
+                    <li class="mr-2">
+                      <%= link_to 'Private Future', calendar_path(@calendar.id),  class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+                    </li>
+                  
+                  <% end %>
+
+                    <% if  controller_name == "calendars" && action_name == "noslot"%>
+                    <li class="mr-2">
+                      <%= link_to 'Non calendarizzate', noslot_calendar_path, class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                      
+                      
+                    </li>
+                  <% else %>
+                    <li class="mr-2">
+                      <%= link_to 'Non calendarizzate', noslot_calendar_path,  class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+                    </li>
+                  
+                  <% end %>
+
+                  <% if  controller_name == "calendars" && action_name == "todoslot"%>
+                    <li class="mr-2">
+                      <%= link_to 'Da finire', todoslot_calendar_path, class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                      
+                      
+                    </li>
+                  <% else %>
+                    <li class="mr-2">
+                      <%= link_to 'Da finire', todoslot_calendar_path,  class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+                    </li>
+                  
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+            <!-- end dashboard  -->         
+         
+          
+            <!-- end pubblico  -->   
+      
+
+          
+       
+         
+          
+         
+        
+      </ul>
+  </div>
+<style>
+
+.relativ {
+  position:  relative;
+
+  height: 3600px;
+  
+}
+
+
+
+</style>
+  <div class="flex flex-wrap mx-auto py-6 lg:px-0 mx-2">
+    <div class="w-full  pr-0 mb-6">
+      <div class=" m-4">
+        <div class="p-4 m-4">
+
+          <h2 class="max-w-md mb-4 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none xl:max-w-lg">
+            <%= @wkBegin.strftime("%Y") %> Settimana n° <%= params[:n_week] %>
+          </h2>
+                          
+          <%#= link_to '+ data', "?new_data=yes", class:"btn btn-indigo" %>
+          <% if @new_data == "yes" %>
+            <%= link_to 'Annulla', "../#{params[:year]}/#{params[:n_week]}", class: "btn btn-outline" %>
+          <% end %> 
+        </div>                   
+            
+          
+              
+      </div>
+  
+    </div>
+  </div>
+</div>
+
+<div style="overflow-x:auto;">
+    <div class="grid grid-rows-7 grid-flow-col gap-4" style="min-width:1100px;">
+        
+        <!-- inizio lun  ---> 
+        <div class=" relativ">
+      
+            <%= link_to future_profile_path(@calendar.profile, date: @data_start.strftime("%Y-%m-%d")) do %>
+
+            <h6 class="text-center mb-2 font-semibold leading-5">Lun <%= @wkBegin.strftime("%d/%m") %></h6>
+            <% end %>
+            <!-- inizio data --->
+            <%= render 'data_week', day: 0, date_d: @wkBegin %>
+            
+            <!--fine  data  --->
+        </div>
+        <!-- fine lun  --->
+        <!-- inizio mar  --->
+        <div class=" relativ">
+        
+          <%= link_to future_profile_path(@calendar.profile, date: (@data_start + 1.day).strftime("%Y-%m-%d")) do %>
+            <h6 class="text-center mb-2 font-semibold leading-5">Mar <%= (@wkBegin + 1.day).strftime("%d/%m") %>
+            </h6>
+            <% end %>
+            
+            
+            <!-- inizio data --->
+            <%= render 'data_week', day: 1, date_d: (@wkBegin + 1.day) %>
+            
+            <!--fine  data  --->
+        </div>
+        <!-- fine mar  --->
+          <!-- inizio mer  --->
+          <div class=" relativ">
+        
+              <%= link_to future_profile_path(@calendar.profile, date: (@data_start + 2.day).strftime("%Y-%m-%d")) do %>
+                  <h6 class="text-center mb-2 font-semibold leading-5">
+            Mer <%= (@wkBegin + 2.day).strftime("%d/%m") %></h6>
+            <% end %>
+      
+            
+            <!-- inizio data --->
+            <%= render 'data_week', day: 2, date_d: (@wkBegin + 2.day) %>
+            
+            <!--fine  data  --->
+        </div>
+        <!-- fine mer  --->
+          <!-- inizio gio  --->
+          <div class=" relativ">
+        
+                                      <%= link_to future_profile_path(@calendar.profile, date: (@data_start + 3.day).strftime("%Y-%m-%d")) do %>
+
+                <h6 class="text-center mb-2 font-semibold leading-5">Gio <%= (@wkBegin + 3.day).strftime("%d/%m") %></h6>
+            
+            <% end %>
+            
+            <!-- inizio data --->
+            <%= render 'data_week', day: 3, date_d: (@wkBegin + 3.day) %>
+            
+            <!--fine  data  --->
+        </div>
+        <!-- fine gio  --->
+          <!-- inizio ven  --->
+          <div class=" relativ">
+        
+                                    <%= link_to future_profile_path(@calendar.profile, date: (@data_start + 4.day).strftime("%Y-%m-%d")) do %>
+
+              <h6 class="text-center mb-2 font-semibold leading-5">Ven <%= (@wkBegin + 4.day).strftime("%d/%m") %></h6>
+            
+            <% end %>
+            
+            <!-- inizio data --->
+            <%= render 'data_week', day: 4, date_d: (@wkBegin + 4.day) %>
+            
+            <!--fine  data  --->
+        </div>
+        <!-- fine ven  --->
+          <!-- inizio sab  --->
+        <div class=" relativ">
+        
+                                      <%= link_to future_profile_path(@calendar.profile, date: (@data_start + 5.day).strftime("%Y-%m-%d")) do %>
+              <h6 class="text-center mb-2 font-semibold leading-5">Sab <%= (@wkBegin + 5.day).strftime("%d/%m") %></h6>
+          
+            
+            <% end %>
+            
+            <!-- inizio data --->
+            <%= render 'data_week', day: 5, date_d: (@wkBegin + 5.day) %>
+            
+            <!--fine  data  --->
+        </div>
+        <!-- fine sab  --->
+          <!-- inizio dom  --->
+          <div class=" relativ">
+        
+              <%= link_to future_profile_path(@calendar.profile, date: (@data_start + 6.day).strftime("%Y-%m-%d")) do %>
+
+            <h6 class="text-center mb-2 font-semibold leading-5">Dom <%=   @wkEnd.strftime("%d/%m") %></h6>
+            
+            <% end %>
+            
+            <!-- inizio data --->
+            <%= render 'data_week', day: 6, date_d: @wkEnd %>
+            
+            <!--fine  data  --->
+        </div>
+        <!-- fine dom  --->
+
+    </div>
+</div>

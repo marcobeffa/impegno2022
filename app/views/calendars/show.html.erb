@@ -1,0 +1,31 @@
+
+<p style="color: green"><%= notice %></p>
+
+<%= render @calendar %>
+
+<div>
+<div class="flex"> 
+<div class="m-2 "> 
+  <%= link_to "Edit this calendar", edit_calendar_path(@calendar), class:"btn btn-primary" %> 
+ </div>
+ <div class="m-2"> 
+  <%= link_to "Back to calendars", calendars_path, class:"btn btn-primary" %>
+ </div>
+ <div class="m-2"> 
+  <%= button_to "Destroy this calendar", @calendar, method: :delete, class:"btn btn-danger", form: { data: { turbo_confirm: "Are you sure?" } } %>
+</div>
+</div>
+<% if current_user.profile.id == @calendar.profile.id %>
+    <div class="my-4">
+    <%= link_to "+ data calendario", new_slot_path(calendar_id: @calendar.id), class:"btn btn-primary" %>
+  </div>
+<% end %>
+
+<div>
+<%= render 'slots/agenda_cal_slot' %>
+
+
+</div>
+
+<div class="h-40">
+</div>

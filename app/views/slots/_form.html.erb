@@ -1,0 +1,47 @@
+<%= form_with(model: slot) do |form| %>
+  <% if slot.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(slot.errors.count, "error") %> prohibited this slot from being saved:</h2>
+
+      <ul>
+        <% slot.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :profile_id, style: "display: block" %>
+    <%= form.text_field :profile_id %>
+  </div>
+
+  <div>
+    <%= form.label :calendar_id, style: "display: block" %>
+    <%= form.text_field :calendar_id %>
+  </div>
+
+  <div>
+    <%= form.label :public, style: "display: block" %>
+    <%= form.check_box :public %>
+  </div>
+
+  <div>
+    <%= form.label :visibility, style: "display: block" %>
+    <%= form.number_field :visibility %>
+  </div>
+
+  <div>
+    <%= form.label :data_start, style: "display: block" %>
+    <%= form.datetime_field :data_start %>
+  </div>
+
+  <div>
+    <%= form.label :data_end, style: "display: block" %>
+    <%= form.datetime_field :data_end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

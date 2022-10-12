@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profile: one
+  name: MyString
+  description: MyText
+  body: MyText
+  image_square_url: MyText
+  image_logo_url: MyText
+  calendar_type: 1
+  luogo_note_id: 1
+  attivita_note_id: 1
+  gruppo_note_id: 1
+  public: false
+  visibility: 1
+
+two:
+  profile: two
+  name: MyString
+  description: MyText
+  body: MyText
+  image_square_url: MyText
+  image_logo_url: MyText
+  calendar_type: 1
+  luogo_note_id: 1
+  attivita_note_id: 1
+  gruppo_note_id: 1
+  public: false
+  visibility: 1

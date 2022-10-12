@@ -1,0 +1,89 @@
+<p style="color:green;"><%= notice %></p>
+
+<h1>Calendari</h1>
+<%= render 'calendars/nav_cal' %>
+
+<%= link_to "New calendar", new_calendar_path, class:"btn btn-danger m-4" %>
+</div>
+
+<div class="container my-12 mx-auto px-4 md:px-12">
+    <div class="flex flex-wrap -mx-1 lg:-mx-4">
+    <!-- Column -->
+       <div id="calendars" class="grid grid-cols-1  ">
+       <div class="relative overflow-x-auto shadow-md sm:rounded-lg ">
+          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                  <tr>
+                      <th scope="col" class="px-6 py-3">
+                          Profile
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Nome
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          luogo
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          attività
+                      </th>
+                       <th scope="col" class="px-6 py-3">
+                          Gruppo
+                      </th>
+                         <th>
+                        pubblico
+                      </th>
+                      <th>
+                        visibilità
+                      </th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                <% @calendars.each do |calendar| %>
+               
+
+ 
+
+  
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                           <img src="<%= calendar.image_logo_url %>" width="60px;">  <%= calendar.profile.username %>
+                        </th>
+                        <td class="px-6 py-4">
+                                 <%= link_to calendar.name, calendar,  class:"font-medium text-text-fuchsia-500 dark:text-fuchsia-400-600 dark:text-text-fuchsia-500 dark:text-fuchsia-400-500 hover:underline" %>
+                        </td>
+                        <td class="px-6 py-4">
+                            <%= calendar.calendar_type %>
+                        </td>
+                        <td class="px-6 py-4">
+                               <%= calendar.luogo_note_id %>
+                        </td>
+
+                        <td class="px-6 py-4">
+                                 <%= calendar.attivita_note_id %>
+                        </td>
+                             <td class="px-6 py-4">
+                                <%= calendar.gruppo_note_id %>
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                          <%= calendar.visibility %>
+                          
+                        </td>
+                    </tr>
+                    
+                  <% end %>
+              </tbody>
+          </table>
+      </div>
+
+      </div>
+        
+        <!-- END Column -->  
+         
+
+    </div>
+</div>
+
+
+
+

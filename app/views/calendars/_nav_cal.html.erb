@@ -1,0 +1,57 @@
+<div style="overflow-x:auto;">
+<ul class="list-none flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+    <% if user_signed_in?%> 
+    
+        <% if  current_user.profile %>
+            <li class="mr-2">
+        
+                <% if (controller_name == "pages" && action_name == "home") || (controller_name == "notes" && action_name == "index")%> 
+                    <%= link_to "ALL NOTE", root_path(current_user.profile.id), class:" inline-block py-3 px-4 text-white bg-red-600 hover:bg-red-900 hover:text-gray-100 rounded-lg active" %>
+
+                        <% else%>
+                        <%= link_to "ALL NOTE", root_path(current_user.profile.id), class:" inline-block text-red-600 py-3 px-4 rounded-lg hover:text-red-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white" %>          
+                    <% end %>
+            </li>
+             <li class="mr-2">
+                <% if (controller_name == "slots" && action_name == "index") || (controller_name == "privata" && action_name == "pastslot") || (controller_name == "privata" && action_name == "noslot") || (controller_name == "privata" && action_name == "todoslot") %> 
+                    <%= link_to "ALL LINK", slots_path, class:" inline-block py-3 px-4 text-white bg-blue-600 hover:bg-blue-900 hover:text-gray-100 rounded-lg active" %>
+
+                        <% else%>
+                        <%= link_to "ALL LINK", slots_path, class:" inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white" %>          
+                    <% end %>
+            </li>
+
+            <li class="mr-2">
+            <% if controller_name == "calendars" && action_name == "index"%> 
+                <%= link_to "CAL", calendars_path, class:" inline-block py-3 px-4 text-white bg-blue-600 hover:bg-blue-900 hover:text-gray-100 rounded-lg active" %>
+
+                    <% else%>
+                    <%= link_to "CAL", calendars_path, class:" inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white" %>          
+                <% end %>
+            </li>
+           
+            
+    
+        
+        <% end %>
+    
+      <% end %>
+    
+  
+    <% current_user.profile.calendars.where(data_end: nil).each do |cal|%>
+        <li class="mr-2">
+ 
+         
+         <% if (controller_name == "calendars" &&  ["show", "pastslot", "todoslot", "noslot"].include?(action_name) && cal.id.to_s == params[:id].to_s) %> 
+            <%= link_to cal.name, cal, class:" inline-block py-3 px-4 text-white bg-blue-600 hover:bg-blue-900 hover:text-gray-100 rounded-lg active" %>
+
+                <% else%>
+                <%= link_to cal.name, cal, class:" inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white" %>          
+            <% end %>
+          
+        </li>
+    <% end %>
+    
+ 
+</ul>
+</div>

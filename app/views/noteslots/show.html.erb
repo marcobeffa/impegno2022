@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @noteslot %>
+
+<div>
+  <%= link_to "Edit this noteslot", edit_noteslot_path(@noteslot) %> |
+  <%= link_to "Back to noteslots", noteslots_path %>
+
+  <%= button_to "Destroy this noteslot", @noteslot, method: :delete %>
+</div>

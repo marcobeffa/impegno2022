@@ -1,0 +1,32 @@
+<%= form_with(model: noteslot) do |form| %>
+  <% if noteslot.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(noteslot.errors.count, "error") %> prohibited this noteslot from being saved:</h2>
+
+      <ul>
+        <% noteslot.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :profile_id, style: "display: block" %>
+    <%= form.text_field :profile_id %>
+  </div>
+
+  <div>
+    <%= form.label :slot_id, style: "display: block" %>
+    <%= form.text_field :slot_id %>
+  </div>
+
+  <div>
+    <%= form.label :note_id, style: "display: block" %>
+    <%= form.text_field :note_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

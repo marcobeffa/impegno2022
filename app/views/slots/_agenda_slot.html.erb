@@ -1,0 +1,149 @@
+
+
+
+  
+<%= render 'calendars/nav_cal' %> 
+
+  <div class="mb-4 text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+      <ul class="list-none flex flex-wrap -mb-px">
+        
+    <!--- menù dashboard-->
+              <% if controller_name == "privata" && action_name == "pastslot" %>
+                <li class="mr-2">
+                  <%= link_to 'Passate', privata_pastslot_path, class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                  
+                </li>
+              <% else %>
+                <li class="mr-2">
+                  <%= link_to 'Passate', privata_pastslot_path, class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+                </li>
+                
+              <% end %>
+              
+              
+        
+              <% if  controller_name == "slots" && action_name == "index"%>
+                <li class="mr-2">
+                  <%= link_to 'Future', slots_path, class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                  
+                  
+                </li>
+              <% else %>
+                <li class="mr-2">
+                  <%= link_to 'Future', slots_path,  class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+                </li>
+              
+              <% end %>
+
+                <% if  controller_name == "privata" && action_name == "noslot"%>
+                <li class="mr-2">
+                  <%= link_to 'Non calendarizzate', privata_noslot_path, class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                  
+                  
+                </li>
+              <% else %>
+                <li class="mr-2">
+                  <%= link_to 'Non calendarizzate', privata_noslot_path,  class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+                </li>
+              
+              <% end %>
+
+               <% if  controller_name == "privata" && action_name == "todoslot"%>
+                <li class="mr-2">
+                  <%= link_to 'Da finire', privata_todoslot_path, class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                  
+                  
+                </li>
+              <% else %>
+                <li class="mr-2">
+                  <%= link_to 'Da finire', privata_todoslot_path,  class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+                </li>
+              
+              <% end %>
+          
+            <!-- end dashboard  -->         
+         
+          
+            <!-- end pubblico  -->   
+      
+
+          
+       
+         
+          
+         
+        
+      </ul>
+  </div>
+  <div class="flex">
+  
+
+
+            <% if @data_start %>
+              
+              
+                
+                  
+                  <%= form_with url: "/",  method: :get do |form| %>
+
+                      <%= form.date_field :date, { required: true, class:"rounded-md p-1 m-1", value:  @data_f, onchange: 'this.form.submit();' }  %>
+                      <%#= form.submit "🔍", class: "ml-2 rounded-lg py-3 px-5 bg-orange-300 inline-block font-medium"  %>
+                        
+                  
+                    <% end %>
+
+            <% end %>  
+                  
+        
+            <% if user_signed_in? %>
+    
+              <% if current_user.profile %>
+                <%= render 'notes/new_note_dropdown' %>
+              <% end %>
+              
+            <% end %>
+         
+
+</div>
+
+
+
+<div class="overflow-x-auto relative">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="py-3 px-6">
+                    Inizio
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Fine
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Note
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        <% @slots.each do |slot| %>
+           
+ 
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= slot.data_start %>
+  
+                </th>
+                <td class="py-4 px-6">
+                     <%= slot.data_end %>
+  
+                </td>
+                <td class="py-4 px-6">
+                    <%= link_to slot.note.name, slot %>
+  
+                </td>
+               
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+</div>

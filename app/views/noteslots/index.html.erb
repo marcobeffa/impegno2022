@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Noteslots</h1>
+
+<div id="noteslots">
+  <% @noteslots.each do |noteslot| %>
+    <%= render noteslot %>
+    <p>
+      <%= link_to "Show this noteslot", noteslot %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New noteslot", new_noteslot_path %>

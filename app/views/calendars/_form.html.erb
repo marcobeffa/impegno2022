@@ -1,0 +1,101 @@
+<%= form_with(model: calendar) do |form| %>
+  <% if calendar.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(calendar.errors.count, "error") %> prohibited this calendar from being saved:</h2>
+
+      <ul>
+        <% calendar.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="m-4">
+    <%= form.label :profile_id, style: "display: block" %>
+    <%= form.text_field :profile_id %>
+  </div>
+
+  <div  class="m-4">
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, class:"input" %>
+  </div>
+
+  <div  class="m-4">
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description, class:"input" %>
+  </div>
+
+  <div  class="m-4">
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_area :body, class:"input" %>
+  </div>
+
+  <div  class="m-4">
+    <%= form.label :image_square_url, style: "display: block" %>
+    <%= form.text_area :image_square_url, class:"input" %>
+  </div>
+
+  <div  class="m-4">
+    <%= form.label :image_logo_url, style: "display: block" %>
+    <%= form.text_area :image_logo_url, class:"input" %>
+  </div>
+
+  <div  class="m-4">
+    <%= form.label :calendar_type, style: "display: block" %>
+    <%= form.number_field :calendar_type, class:"input" %>
+  </div>
+
+  <div  class="m-4">
+    <%= form.label :luogo_note_id, style: "display: block" %>
+    <%= form.number_field :luogo_note_id, class:"input" %>
+  </div>
+
+  <div  class="m-4">
+    <%= form.label :attivita_note_id, style: "display: block" %>
+    <%= form.number_field :attivita_note_id, class:"input" %>
+  </div>
+
+  <div  class="m-4">
+    <%= form.label :gruppo_note_id, style: "display: block" %>
+    <%= form.number_field :gruppo_note_id, class:"input" %>
+  </div>
+ 
+  <div  class="m-4">
+    <%= form.label :public, style: "display: block" %>
+    <%= form.check_box :public, class:"" %>
+  </div>
+
+  <div  class="m-4">
+    <%= form.label :visibility, style: "display: block" %>
+    <%= form.number_field :visibility, class:"input" %>
+  </div>
+
+ <div>
+    <%= form.label :responsabile_profile_id, style: "display: block" %>
+    <%= form.text_field :responsabile_profile_id %>
+  </div>
+
+   <div>
+    <%= form.label :data_start, style: "display: block" %>
+    <%= form.datetime_field :data_start %>
+  </div>
+
+  <div>
+    <%= form.label :data_end, style: "display: block" %>
+    <%= form.datetime_field :data_end %>
+  </div>
+
+   <div>
+    <%= form.label :uscite, style: "display: block" %>
+    <%= form.text_field :uscite %>
+  </div>
+
+  <div>
+    <%= form.label :entrate, style: "display: block" %>
+    <%= form.text_field :entrate %>
+  </div>
+  <div class="my-4">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+<% end %>

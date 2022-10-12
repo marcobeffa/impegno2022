@@ -10,9 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_23_110406) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_03_132107) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calendars", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "name"
+    t.text "description"
+    t.text "body"
+    t.text "image_square_url"
+    t.text "image_logo_url"
+    t.integer "calendar_type"
+    t.integer "luogo_note_id"
+    t.integer "attivita_note_id"
+    t.integer "gruppo_note_id"
+    t.integer "responsabile_profile_id"
+    t.boolean "public"
+    t.integer "visibility"
+    t.decimal "uscite", precision: 8, scale: 2
+    t.decimal "entrate", precision: 8, scale: 2
+    t.datetime "data_start"
+    t.datetime "data_end"
+    t.decimal "zoom_index", precision: 8, scale: 2
+    t.string "hex_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_calendars_on_profile_id"
+  end
 
   create_table "notes", force: :cascade do |t|
     t.bigint "profile_id", null: false
@@ -35,6 +60,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_110406) do
     t.index ["profile_id"], name: "index_notes_on_profile_id"
   end
 
+  create_table "noteslots", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.bigint "slot_id", null: false
+    t.bigint "note_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_noteslots_on_note_id"
+    t.index ["profile_id"], name: "index_noteslots_on_profile_id"
+    t.index ["slot_id"], name: "index_noteslots_on_slot_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title"
@@ -55,6 +91,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_110406) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "slots", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.bigint "calendar_id", null: false
+    t.boolean "public"
+    t.integer "visibility"
+    t.datetime "data_start"
+    t.datetime "data_end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["calendar_id"], name: "index_slots_on_calendar_id"
+    t.index ["profile_id"], name: "index_slots_on_profile_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -67,6 +116,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_110406) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "calendars", "profiles"
   add_foreign_key "notes", "profiles"
+  add_foreign_key "noteslots", "notes"
+  add_foreign_key "noteslots", "profiles"
+  add_foreign_key "noteslots", "slots"
   add_foreign_key "profiles", "users"
+  add_foreign_key "slots", "calendars"
+  add_foreign_key "slots", "profiles"
 end

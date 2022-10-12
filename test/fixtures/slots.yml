@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profile: one
+  calendar: one
+  public: false
+  visibility: 1
+  data_start: 2022-10-03 13:24:11
+  data_end: 2022-10-03 13:24:11
+
+two:
+  profile: two
+  calendar: two
+  public: false
+  visibility: 1
+  data_start: 2022-10-03 13:24:11
+  data_end: 2022-10-03 13:24:11

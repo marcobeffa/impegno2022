@@ -1,0 +1,32 @@
+
+
+<% if @new_data == "yes" %>
+<div class="m-4">
+
+  <%= link_to 'New data', "?new_data=#{day}", class: "btn btn-indigo " %>
+ </div>
+<% end %> 
+
+<% if @new_data == day.to_s %>
+  <%#= render 'new_data', day: day, date: date_d, data: @data, profile: current_user.profile  %> 
+<% end %>
+
+
+
+
+  <div class="space-y-1 m-auto bg-white"  >
+  <% n_data = 0 %>
+  
+  <%  @datas.order("data_start ASC").each do |data| %>
+  
+      <%= render 'profiles/week/data', data: data, day: day, n_data: n_data %>
+
+  <% if data.note_type == "data" %>
+    <% n_data += 1 %>
+  <% end %>
+
+    
+  <% end %>
+    
+    
+</div>
