@@ -3,12 +3,6 @@ class NotesController < ApplicationController
 
   # GET /notes or /notes.json
   def index
-    Note.all.each do |note|
-      if note.note_type == nil
-        note.update(note_type: 0)
-      end
-    end
-
     if params[:date]
       date = params[:date]
       year = date[0, 4].to_i  
