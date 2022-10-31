@@ -5,8 +5,8 @@ module ApplicationHelper
     options[:nocomment] = true
     options[:class] = options.fetch(:styles, "fill-current text-gray-500")
     filename = "#{name}.svg"
-    filename
-    #inline_svg_tag(filename, options)
+    
+    inline_svg_tag(filename, options)
   end
   
   
