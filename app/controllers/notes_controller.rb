@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   # GET /notes or /notes.json
   def index
     Note.all.each do |note|
-      if  note.note_type > 8
+      if note.note_type.to_i > 8
         note.update(note_type: 0)
       end
     end
