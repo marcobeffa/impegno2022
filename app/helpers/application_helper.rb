@@ -5,7 +5,7 @@ module ApplicationHelper
     options[:nocomment] = true
     options[:class] = options.fetch(:styles, "fill-current text-gray-500")
     filename = "#{name}.svg"
-    inline_svg_tag(filename, options)
+    filename
   end
   def old_render_svg(name, options={})
     options[:title] ||= name.underscore.humanize
