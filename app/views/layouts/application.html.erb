@@ -11,6 +11,8 @@
     <%= favicon_link_tag asset_path("1impegno_logo.png") %>
      <%= favicon_link_tag asset_path("1impegno_logo.png"), :rel => "apple-touch-icon"  %>
     <meta name="1impegno.it" content="1impegno.it">
+    <script src="https://kit.fontawesome.com/f359a794be.js" crossorigin="anonymous"></script>
+    <!---fontawesome markpostura@gmail.com--->
   </head>
 
   <body>
@@ -22,35 +24,9 @@
          <p class="alert"><%= alert %></p>
       <% end %>
        
-        <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-    
-  
-        <% if user_signed_in? %>
-            <% if (controller_name == "profiles" && action_name == "future") || (controller_name == "profiles" && action_name == "passate") ||  (controller_name == "profiles" && action_name == "settimana")  %>
-                    <%= render 'shared/nav_profilo_pubblico' %>
-              <% else %>
-                          <%= render 'shared/nav_dash' %>
-                
-            <% end %>
-        <% else %>
-              <% if @profile %>
-            <%= render 'shared/nav_profilo_pubblico' %>
-            <% else%>
-                  <%= render 'shared/nav_pubblico' %>
-              <%end %>
-          <% end %>
-          </div>
-
-          
-           <div class=" mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-    
-          
+      
               <%= yield %>  
 
-            </div> 
-         
     
-
-    </div>
   </body>
 </html>

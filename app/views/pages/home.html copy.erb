@@ -1,0 +1,19 @@
+
+<% if user_signed_in? %>
+  
+
+
+  <% if current_user.profile %> 
+      <%= render "notes/agenda_note"%>  
+    
+  <% else %>
+  
+  <%= render 'shared/profili' %>
+  <% end %>
+
+  <% else %>
+  <%= render 'shared/profili' %>
+
+<% end %>
+
+

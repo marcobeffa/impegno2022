@@ -7,6 +7,14 @@ module ApplicationHelper
     filename = "#{name}.svg"
     inline_svg_tag(filename, options)
   end
+  def old_render_svg(name, options={})
+    options[:title] ||= name.underscore.humanize
+    options[:aria] = true
+    options[:nocomment] = true
+    options[:class] = options.fetch(:styles, "fill-current text-gray-500")
+    filename = "#{name}.svg"
+    inline_svg_tag(filename, options)
+  end
   
   def markdown(text)
     options = [:hard_wrap, :autolink, :no_intra_emphasis, :fenced_code_blocks]

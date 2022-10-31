@@ -1,0 +1,48 @@
+<!-- crea nota----> 
+  <% if user_signed_in? %>
+  <div data-controller="dropdown"  class="btn   <% if controller_name == "notes" && action_name == "edit" %>hidden<% end %>">
+
+    <%= link_to "#", class: "no-underline flex justify-between text-sm tracking-wide items-center font-semibold select-none py-2", data: { action: "click->dropdown#toggle click@window->dropdown#hide" } do %>
+          
+    <% if action_name == "new" && controller_name == "notes" %>
+      <% if params[:note_type].nil? %>
+        <%= render_svg "icons/create", styles: "group-hover:text-indigo-600 fill-current text-gray-600", title: "Create submission" %>
+      <% else %> 
+        <%= render_svg "notes/#{params[:note_type].first}", styles: "w-5 h-5 fill-current group-hover:text-indigo-600 text-gray-600 mr-3" %>
+        <%= params[:note_type].first %>
+      <% end %> 
+    <% else %>
+      <%= render_svg "icons/create", styles: "group-hover:text-indigo-600 fill-current text-gray-600", title: "Create submission" %>
+    <% end %>    
+
+
+      <%= render_svg "icons/chevron-down", styles: "ml-2 w-4 h-4 text-gray-600" %>
+    <% end %>
+    <div class="relative">
+      <ul style="z-index:50;" class="list-none hidden absolute top-2 -right-8 bg-white min-w-[200px] border border-gray-400 rounded shadow-lg" data-dropdown-target="menu">
+          
+        
+        
+          <% Note.note_types.each do |note| %> 
+            <li>
+            
+            <% if @activity.present? %>
+              <% act_id = @activity.id %>
+            <% else %>
+             <% act_id = nil%>
+            <% end %>
+           
+              <%= link_to new_note_path(note_type: note.first, data_start: @data_f), class: "hover:bg-indigo-50 hover:text-indigo-600 text-gray-600 no-underline block py-3 px-4 flex items-center group rounded-t" do %>
+                <%#= render_svg "notes/#{note.first}", styles: "w-5 h-5 fill-current group-hover:text-indigo-600 text-gray-600 mr-3" %>
+                  <%= note.first %>
+              <% end %>
+            </li>
+          <% end %>
+          
+      
+      </ul>
+
+    </div>
+  </div>   
+<!-- fine crea nota -->
+  <% end %>

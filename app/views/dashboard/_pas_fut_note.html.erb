@@ -1,0 +1,114 @@
+<div class="mb-4 text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+    <ul class="list-none flex flex-wrap -mb-px">
+      
+        <% if  (controller_name == "dashboard" && action_name == "passate") || (controller_name == "notes" && action_name == "index")  %>
+          <!--- menù dashboard-->
+           
+            
+      
+            <% if  (controller_name == "dashboard" && action_name == "passate") || (controller_name == "profiles" && action_name == "future")%>
+              <li class="mr-2">
+                <%= link_to 'Passate', dashboard_passate_path, class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                
+                
+              </li>
+            <% else  %>
+              <li class="mr-2">
+                <%= link_to 'Passate', dashboard_passate_path,  class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+              </li>
+            
+            <% end %>
+
+             <% if controller_name == "notes" && action_name == "index" %>
+              <li class="mr-2">
+                <%= link_to 'Future', notes_path,class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                
+                
+              </li>
+            <% else %>
+              <li class="mr-2">
+                <%= link_to 'Future', notes_path, class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+              </li>
+              
+            <% end %>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+        
+          <!-- end dashboard  -->         
+        <% elsif (controller_name == "profiles" && action_name == "passate") || (controller_name == "profiles" && action_name == "future")  %>
+      
+            <!--- menù pubblico -->
+            <% if controller_name == "profiles" && action_name == "passate" %>
+              <li class="mr-2">
+                <%= link_to 'Passate', passate_profile_path(@profile), class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                
+                
+              </li>
+            <% else %>
+              <li class="mr-2">
+                <%= link_to 'Passate', passate_profile_path(@profile), class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+              </li>
+              
+            <% end %>
+            
+            
+      
+              <% if  (controller_name == "pages" && action_name == "home") || (controller_name == "profiles" && action_name == "future")%>
+              <li class="mr-2">
+                <%= link_to 'Future', future_profile_path(@profile), class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                
+                
+              </li>
+            <% elsif  (controller_name == "notes" && action_name == "index") || (controller_name == "profiles" && action_name == "passate") %>
+              <li class="mr-2">
+                <%= link_to 'Future', future_profile_path(@profile),  class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+              </li>
+            
+            <% end %>
+
+
+          <% if  (controller_name == "profiles" && action_name == "settimana") %>
+              <li class="mr-2">
+                <%= link_to 'Settimana',  settimana_profile_path(@profile), class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                
+                
+              </li>
+            <% else   %>
+              <li class="mr-2">
+                <%= link_to 'Settimana',  settimana_profile_path(@profile),  class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+              </li>
+            
+            <% end %>
+
+        
+          <!-- end pubblico  -->   
+      
+        <% end %>
+
+        
+    
+      
+        
+      
+      
+    </ul>
+</div>

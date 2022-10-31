@@ -13,14 +13,32 @@
 
   <div>
     <%= form.label :profile_id, style: "display: block" %>
-    <%= form.text_field :profile_id %>
+    <%= form.text_field :profile_id, class:"input", value: current_user.profile.id%>
+  </div>
+    <div>
+    <%= form.label :calendario_contact_note_id, style: "display: block" %>
+    <%= form.text_field :calendario_contact_note_id, class:"input", value: current_user.profile.id%>
+  </div>
+    <div>
+    <%= form.label :calendario_profile_id, style: "display: block" %>
+    <%= form.text_field :calendario_profile_id, class:"input", value: current_user.profile.id%>
   </div>
 
+  
+
+<% if params[:calendar_id] %>  
   <div>
     <%= form.label :calendar_id, style: "display: block" %>
-    <%= form.text_field :calendar_id %>
+    <%= form.text_field :calendar_id, class:"input", value: params[:calendar_id], required: true %> 
   </div>
-
+<% else %>
+ <div>
+    <%= form.label :calendar_id, style: "display: block" %>
+   
+      <%= form.collection_select :calendar_id, current_user.profile.calendars, :id, :name, {  prompt: "Scegli il Calendario"}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", required: true %>
+    
+  </div>
+<% end %>
   <div>
     <%= form.label :public, style: "display: block" %>
     <%= form.check_box :public %>
@@ -28,20 +46,24 @@
 
   <div>
     <%= form.label :visibility, style: "display: block" %>
-    <%= form.number_field :visibility %>
+    <%= form.select :visibility, options_for_select(Slot.visibilities.map {|k, v| [k.titleize, k]},  selected: @slot.visibility), {:prompt => 'Visibilità'}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+
   </div>
 
   <div>
     <%= form.label :data_start, style: "display: block" %>
-    <%= form.datetime_field :data_start %>
+    <%= form.datetime_field :data_start, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", required: true  %>
   </div>
 
-  <div>
+  <div class="">
     <%= form.label :data_end, style: "display: block" %>
-    <%= form.datetime_field :data_end %>
+    <%= form.datetime_field :data_end, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", required: true  %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="my-4">
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>
+
+
+ 

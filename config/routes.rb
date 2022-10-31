@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+  get 'dashboard/note'
+  get 'dashboard/passate'
+  get 'dashboard/eventi'
+  get 'dashboard/soldi'
+  get 'dashboard/energie'
+  get 'dashboard/accessi'
+  get 'dashboard/attenzione'
+  get 'dashboard/luoghi'
+  get 'dashboard/abilita'
+  get 'dashboard/attivita'
   resources :noteslots
   resources :slots
   get 'privata/pastslot'
