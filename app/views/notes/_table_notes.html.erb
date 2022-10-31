@@ -80,8 +80,10 @@
                           <th
                             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
                           >
-                              <%= render_svg "notes/#{note.note_type}", styles: "w-5 h-5 fill-current group-hover:text-indigo-600 text-gray-600 mr-3" %>
-                                  
+                               <% if note.note_type.lenght > 3 %>
+                                  <%= render_svg "notes/#{note.note_type}", styles: "w-5 h-5 fill-current group-hover:text-indigo-600 text-gray-600 mr-3" %>
+                                              
+                                      <% end %>
 
                             <span class="ml-3 font-bold text-blueGray-600">
                                <% if user_signed_in? %> 
