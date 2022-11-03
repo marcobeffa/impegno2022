@@ -24,10 +24,10 @@ class DashboardController < ApplicationController
       @data_f = DateTime.now.strftime("%Y-%m-%d")
     # @notes = current_user.profile.notes.where(:start => @data_start.beginning_of_day..@data_start.end_of_day)   
     # @scheduledates = current_user.profiles.first.scheduledates.where(:start => @data_start.beginning_of_day..@data_start.end_of_day)   
-    end 
+    end  
     @notes = current_user.profile.notes.where("data_start < ?", @data_start.beginning_of_day )
     if @notes
-      @notes =  @notes.order(data_start: :asc)
+      @notes =  @notes.order(data_start: :desc)
     end 
     @profile = current_user.profile
 
