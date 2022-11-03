@@ -25,8 +25,7 @@
       class="container px-4 mx-auto flex flex-wrap items-center justify-between"
     >
       <div
-        class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
-      >
+        class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
         <a
           class="flex text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
           href="#"
@@ -45,13 +44,27 @@
       >
         <ul class="flex flex-col lg:flex-row list-none mr-auto">
           <li class="flex items-center">
-          <%= link_to dashboard_index_path, class:"lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" do %>
+          <% if user_signed_in? %>
+            <%= link_to dashboard_index_path, class:"lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" do %>
           
             
               <i
                 class="lg:text-blueGray-200 text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2"
               ></i>
-              Dashboard<% end %>
+              Dashboard
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_path, class:"lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" do %>
+          
+            
+              <i
+                class="lg:text-blueGray-200 text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2"
+              ></i>
+              Dashboard
+            <% end %>
+            
+          <% end %>
+         
           </li>
         </ul>
         <!--ul

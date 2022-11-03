@@ -53,7 +53,7 @@
                     
                       <div class="flex">
                         <% if @data_start %>    
-                          <%= form_with url: "/",  method: :get do |form| %>
+                          <%= form_with url: "/dashboard/passate",  method: :get do |form| %>
 
                                   <%= form.date_field :date, { required: true, class:"rounded-md p-1 m-1", value:  @data_f, onchange: 'this.form.submit();' }  %>
                                   <%#= form.submit "🔍", class: "ml-2 rounded-lg py-3 px-5 bg-orange-300 inline-block font-medium"  %>
@@ -67,7 +67,10 @@
                       </div>
                    
                      <!-- nav tempo --->
-                    <div
+                   
+                 
+                  </div>
+                   <div
                       class="relative w-full px-4 max-w-full flex-grow flex-1"
                     >
                     
@@ -76,8 +79,6 @@
                       </h3>
                       
                     </div>
-                 
-                  </div>
                 </div>
                 <div class="block w-full overflow-x-auto">
                   <!-- Projects table -->

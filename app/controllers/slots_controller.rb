@@ -1,4 +1,5 @@
 class SlotsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_slot, only: %i[ show edit update destroy ]
 
   # GET /slots or /slots.json

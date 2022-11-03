@@ -1,4 +1,5 @@
 class NoteslotsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_noteslot, only: %i[ show edit update destroy ]
 
   # GET /noteslots or /noteslots.json

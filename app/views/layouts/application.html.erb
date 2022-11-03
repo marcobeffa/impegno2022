@@ -17,12 +17,21 @@
 
   <body>
   
+   <% if notice || alert %>
+   <div class="p-4"> 
       <% if notice %>
+        <button onClick="window.location.reload();">
          <p class="notice"><%= notice %></p>
+         </button>
       <% end %>
       <% if alert %>
-         <p class="alert"><%= alert %></p>
+        <button onClick="window.location.reload();">
+          <p class="alert"><%= alert %></p>
+        </button> 
       <% end %>
+     </div>
+    <% end %>
+
        
       
               <%= yield %>  

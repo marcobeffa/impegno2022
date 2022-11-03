@@ -1,4 +1,5 @@
 class PrivataController < ApplicationController
+  before_action :authenticate_user!
   def pastslot
     if params[:date]
       date = params[:date]
