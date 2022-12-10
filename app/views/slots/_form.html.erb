@@ -50,6 +50,21 @@
 
   </div>
 
+
+ 
+
+
+<% if params[:data_start] %>
+  <div>
+    <%= form.label :data_start, style: "display: block" %>
+    <%= form.datetime_field :data_start, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", required: true, value: (params[:data_start])[0..15]  %>
+  </div>
+
+  <div class="">
+    <%= form.label :data_end, style: "display: block" %>
+    <%= form.datetime_field :data_end, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", required: true, value: (params[:data_start])[0..15]  %>
+  </div>
+<% else %>
   <div>
     <%= form.label :data_start, style: "display: block" %>
     <%= form.datetime_field :data_start, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", required: true  %>
@@ -59,6 +74,10 @@
     <%= form.label :data_end, style: "display: block" %>
     <%= form.datetime_field :data_end, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", required: true  %>
   </div>
+
+<% end %>
+
+  
 
   <div class="my-4">
     <%= form.submit class:"btn btn-primary" %>

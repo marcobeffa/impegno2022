@@ -2,6 +2,8 @@ class CalendarsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_calendar, only: %i[ show edit update destroy pastslot noslot todoslot future passate settimana]
 
+
+  layout "dashboard"
   # GET /calendars or /calendars.json
   def index
     @calendars = Calendar.all

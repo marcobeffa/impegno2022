@@ -66,6 +66,6 @@ class NoteslotsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def noteslot_params
-      params.require(:noteslot).permit(:profile_id, :slot_id, :note_id)
+      params.require(:noteslot).permit(:profile_id, :slot_id, :note_id, :note_type)
     end
 end

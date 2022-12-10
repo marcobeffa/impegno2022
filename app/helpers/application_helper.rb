@@ -9,6 +9,15 @@ module ApplicationHelper
     inline_svg_tag(filename, options)
   end
   
+
+  def h_avatar_url(n_id)
+  
+    if Profile.find(n_id).avatar_url.empty?
+      image_url("nav/user.png") 
+    else
+      profile = Profile.find(n_id).avatar_url
+    end
+  end
   
   def markdown(text)
     options = [:hard_wrap, :autolink, :no_intra_emphasis, :fenced_code_blocks]

@@ -1,12 +1,12 @@
-<p style="color:green;"><%= notice %></p>
+<div class="mx-auto">
+<h2 class="m-4 pt-4">Calendari</h2>
 
-<h1>Calendari</h1>
-<%= render 'calendars/nav_cal' %>
 
-<%= link_to "New calendar", new_calendar_path, class:"btn btn-danger m-4" %>
-</div>
+
 
 <div class="container my-12 mx-auto px-4 md:px-12">
+<%= link_to "New calendar", new_calendar_path, class:"btn btn-danger m-4" %>
+
     <div class="flex flex-wrap -mx-1 lg:-mx-4">
     <!-- Column -->
        <div id="calendars" class="grid grid-cols-1  ">

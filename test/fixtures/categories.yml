@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profile: one
+  name: MyString
+  description: MyString
+  image_icona_url: MyText
+  image_card_url: MyText
+  calendar: one
+  indirizzo: MyText
+  luogo: MyText
+  color: MyString
+
+two:
+  profile: two
+  name: MyString
+  description: MyString
+  image_icona_url: MyText
+  image_card_url: MyText
+  calendar: two
+  indirizzo: MyText
+  luogo: MyText
+  color: MyString

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_31_094253) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_10_143131) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +37,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_31_094253) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_calendars_on_profile_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "name"
+    t.string "description"
+    t.text "image_icona_url"
+    t.text "image_card_url"
+    t.bigint "calendar_id", null: false
+    t.text "indirizzo"
+    t.text "luogo"
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["calendar_id"], name: "index_categories_on_calendar_id"
+    t.index ["profile_id"], name: "index_categories_on_profile_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -66,6 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_31_094253) do
     t.bigint "note_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "note_type"
     t.index ["note_id"], name: "index_noteslots_on_note_id"
     t.index ["profile_id"], name: "index_noteslots_on_profile_id"
     t.index ["slot_id"], name: "index_noteslots_on_slot_id"
@@ -119,6 +136,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_31_094253) do
   end
 
   add_foreign_key "calendars", "profiles"
+  add_foreign_key "categories", "calendars"
+  add_foreign_key "categories", "profiles"
   add_foreign_key "notes", "profiles"
   add_foreign_key "noteslots", "notes"
   add_foreign_key "noteslots", "profiles"

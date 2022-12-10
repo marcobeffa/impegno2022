@@ -84,7 +84,7 @@
                  <% if current_user.profile && action_name != "new" %>
    
                   <div class="flex items-center space-x-4 mx-4">
-                        <img class="w-10 h-10 rounded-full" src="<% if current_user.profile.avatar_url.size > 0%> <%= current_user.profile.avatar_url %><% else %>https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg<% end %>" alt="">
+                        <img class="w-10 h-10 rounded-full" src=" <%= avatar_url(current_user.profile.id) %>" alt="">
                         <div class="font-medium dark:text-white">
                             <div><%= current_user.profile.username %></div>
                             <div class="text-sm text-gray-500 dark:text-gray-400">Joined <%= current_user.profile.created_at.strftime("%d/%m/%Y") %></div>

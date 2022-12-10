@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories
+  
   get 'dashboard/index'
   get 'dashboard/note'
   get 'dashboard/passate'
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   
   resources :slots 
   resources :calendars do
+    resources :categories
     member do
       get 'pastslot'
       get 'noslot'
@@ -26,7 +29,6 @@ Rails.application.routes.draw do
       get "passate"
       get "future"
       get "settimana"
-  
     end
   end 
   resources :notes
@@ -46,4 +48,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#home"
+  authenticate :user do
+    root "dashboard#index", as: :authenticated_root
+  end
+
+  
+
+  
 end
