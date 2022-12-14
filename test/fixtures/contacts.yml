@@ -1,0 +1,39 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  referencte_c_id: 1
+  profile: one
+  contatto_p_id: 1
+  nome: MyString
+  cognome: MyString
+  indirizzo: MyString
+  codice_fiscale: MyString
+  email: MyString
+  telefono: MyString
+  via: MyString
+  cap: MyString
+  paese_città: MyString
+  provincia: MyString
+  address_complete: MyText
+  latitude: 9.99
+  longitude: 9.99
+
+two:
+  user: two
+  referencte_c_id: 1
+  profile: two
+  contatto_p_id: 1
+  nome: MyString
+  cognome: MyString
+  indirizzo: MyString
+  codice_fiscale: MyString
+  email: MyString
+  telefono: MyString
+  via: MyString
+  cap: MyString
+  paese_città: MyString
+  provincia: MyString
+  address_complete: MyText
+  latitude: 9.99
+  longitude: 9.99

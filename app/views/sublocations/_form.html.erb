@@ -1,0 +1,57 @@
+<%= form_with(model: sublocation) do |form| %>
+  <% if sublocation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(sublocation.errors.count, "error") %> prohibited this sublocation from being saved:</h2>
+
+      <ul>
+        <% sublocation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :note_id, style: "display: block" %>
+    <%= form.text_field :note_id %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :img_quadrata_url, style: "display: block" %>
+    <%= form.text_area :img_quadrata_url %>
+  </div>
+
+  <div>
+    <%= form.label :img_ret_orizzontale, style: "display: block" %>
+    <%= form.text_area :img_ret_orizzontale %>
+  </div>
+
+  <div>
+    <%= form.label :img_ret_verticale, style: "display: block" %>
+    <%= form.text_area :img_ret_verticale %>
+  </div>
+
+  <div>
+    <%= form.label :num_posti_max, style: "display: block" %>
+    <%= form.number_field :num_posti_max %>
+  </div>
+
+  <div>
+    <%= form.label :num_location, style: "display: block" %>
+    <%= form.number_field :num_location %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

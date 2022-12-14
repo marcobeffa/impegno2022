@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Sublocations</h1>
+
+<div id="sublocations">
+  <% @sublocations.each do |sublocation| %>
+    <%= render sublocation %>
+    <p>
+      <%= link_to "Show this sublocation", sublocation %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New sublocation", new_sublocation_path %>

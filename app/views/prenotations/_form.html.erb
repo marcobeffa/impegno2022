@@ -1,0 +1,92 @@
+<%= form_with(model: prenotation) do |form| %>
+  <% if prenotation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(prenotation.errors.count, "error") %> prohibited this prenotation from being saved:</h2>
+
+      <ul>
+        <% prenotation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :contact_id, style: "display: block" %>
+    <%= form.text_field :contact_id %>
+  </div>
+
+  <div>
+    <%= form.label :slot_id, style: "display: block" %>
+    <%= form.text_field :slot_id %>
+  </div>
+
+  <div>
+    <%= form.label :event_id, style: "display: block" %>
+    <%= form.text_field :event_id %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :confermata, style: "display: block" %>
+    <%= form.datetime_field :confermata %>
+  </div>
+
+  <div>
+    <%= form.label :profile_id, style: "display: block" %>
+    <%= form.text_field :profile_id %>
+  </div>
+
+  <div>
+    <%= form.label :pagamento_tipo, style: "display: block" %>
+    <%= form.number_field :pagamento_tipo %>
+  </div>
+
+  <div>
+    <%= form.label :data_pagamento, style: "display: block" %>
+    <%= form.datetime_field :data_pagamento %>
+  </div>
+
+  <div>
+    <%= form.label :fattura_n, style: "display: block" %>
+    <%= form.number_field :fattura_n %>
+  </div>
+
+  <div>
+    <%= form.label :fattura_anno, style: "display: block" %>
+    <%= form.number_field :fattura_anno %>
+  </div>
+
+  <div>
+    <%= form.label :price_value, style: "display: block" %>
+    <%= form.text_field :price_value %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :tipo_prenotazione, style: "display: block" %>
+    <%= form.number_field :tipo_prenotazione %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,5 +1,4 @@
-<p style="color: green"><%= notice %></p>
-
+<div class="mx-auto my-8">
 <%= link_to "Aggiungi a un calendario", new_slot_path(note_id: @note.id), class:"btn btn-primary m-4" %>
 
 <%= render @note %>
@@ -14,5 +13,23 @@
 
 
 
+<% if @note.note_type  == "luoghi" %>
 
-<!--- https://www.b4web.biz/181/aggiungere-tramite-link-un-evento-su-google-calendar-->
+
+   <h1>Sublocations</h1>
+
+<div id="sublocations">
+  <% @note.sublocations.each do |sublocation| %>
+    <%= render sublocation %>
+    <p>
+      <%= link_to "Show this sublocation", sublocation %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New sublocation", new_sublocation_path(luogo_n_id: @note.id) %>
+
+<% end %>
+
+
+<!--- https://www.b4web.biz/181/aggiungere-tramite-link-un-evento-su-google-calendar--></div>

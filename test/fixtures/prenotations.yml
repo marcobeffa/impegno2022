@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contact: one
+  slot: one
+  event: one
+  user: one
+  email: MyString
+  confermata: 2022-12-11 17:33:06
+  profile: one
+  pagamento_tipo: 1
+  data_pagamento: 2022-12-11 17:33:06
+  fattura_n: 1
+  fattura_anno: 1
+  price_value: 9.99
+  name: MyString
+  description: MyString
+  tipo_prenotazione: 1
+
+two:
+  contact: two
+  slot: two
+  event: two
+  user: two
+  email: MyString
+  confermata: 2022-12-11 17:33:06
+  profile: two
+  pagamento_tipo: 1
+  data_pagamento: 2022-12-11 17:33:06
+  fattura_n: 1
+  fattura_anno: 1
+  price_value: 9.99
+  name: MyString
+  description: MyString
+  tipo_prenotazione: 1

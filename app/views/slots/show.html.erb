@@ -1,18 +1,30 @@
-<p style="color: green"><%= notice %></p>
-
+<div>
 <%= render @slot %>
 
   
 
 <div>
-  <%= link_to "Edit this slot", edit_slot_path(@slot) %> |
-  <%= link_to "Back to slots", slots_path %>
+  <%= link_to "Edit this slot", edit_slot_path(@slot), class:"btn btn-primary m-2" %> 
+  <%= link_to "Back to slots", slots_path, class:"btn btn-primary m-2" %>
 
-  <%= button_to "Destroy this slot", @slot, method: :delete %>
+  <%= button_to "Destroy this slot", @slot, method: :delete, class:"btn btn-danger m-2" %>
 </div>
-
-
-                    Partecipanti            
-                                        <a href="http://www.google.com/calendar/event?action=TEMPLATE&dates=20180821%2F20180822&text=Litmus%20Live%20London&location=etc.venues%20155%20Bishopsgate&details=Litmus%20Live%20helps%20you%20become%20a%20better%20email%20marketer%20with%20real-world%20advice%2C%20best%20practices%20%26%20practical%20takeaways." target="_blank" class="tracking-wider text-gray-600 bg-gray-200 px-2 text-sm rounded leading-loose mx-2 font-semibold">
+                               
+                                        <a href="http://www.google.com/calendar/event?action=TEMPLATE&dates=20180821%2F20180822&text=Litmus%20Live%20London&location=etc.venues%20155%20Bishopsgate&details=Litmus%20Live%20helps%20you%20become%20a%20better%20email%20marketer%20with%20real-world%20advice%2C%20best%20practices%20%26%20practical%20takeaways." target="_blank" class="btn btn-primary m-2">
                                       Salva data
                                     </a>
+
+<h3>Prenotazioni</h3>
+
+<div id="prenotations">
+  <% @slot.prenotations.each do |prenotation| %>
+    <%= render prenotation %>
+    <p>
+      <%= link_to "Show this prenotation", prenotation %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New prenotation", new_prenotation_path(slot_id: @slot.id), class:"btn btn-secondary m-2" %>
+
+</div>

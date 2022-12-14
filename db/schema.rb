@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_10_143131) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_14_100151) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +55,56 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_143131) do
     t.index ["profile_id"], name: "index_categories_on_profile_id"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "referencte_c_id"
+    t.bigint "profile_id"
+    t.integer "contatto_p_id"
+    t.string "nome"
+    t.string "cognome"
+    t.string "indirizzo"
+    t.string "codice_fiscale"
+    t.string "email"
+    t.string "telefono"
+    t.string "via"
+    t.string "cap"
+    t.string "paese_città"
+    t.string "provincia"
+    t.text "address_complete"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_contacts_on_profile_id"
+    t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "name"
+    t.string "description"
+    t.text "image_icona_url"
+    t.text "image_card_url"
+    t.integer "n_partecipanti"
+    t.integer "n_conduttori"
+    t.integer "durata_minuti"
+    t.text "indirizzo"
+    t.text "luogo"
+    t.string "paese"
+    t.decimal "prezzo_pieno"
+    t.decimal "prezzo_bambini"
+    t.bigint "calendar_id"
+    t.bigint "category_id"
+    t.datetime "data_conferma"
+    t.boolean "public"
+    t.integer "visibility"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["calendar_id"], name: "index_events_on_calendar_id"
+    t.index ["category_id"], name: "index_events_on_category_id"
+    t.index ["profile_id"], name: "index_events_on_profile_id"
+  end
+
   create_table "notes", force: :cascade do |t|
     t.bigint "profile_id", null: false
     t.string "name"
@@ -88,6 +138,35 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_143131) do
     t.index ["slot_id"], name: "index_noteslots_on_slot_id"
   end
 
+  create_table "prenotations", force: :cascade do |t|
+    t.bigint "contact_id"
+    t.bigint "slot_id"
+    t.bigint "event_id", null: false
+    t.bigint "user_id"
+    t.string "email"
+    t.string "telefono"
+    t.integer "stato_prenotazione"
+    t.datetime "confermata"
+    t.bigint "profile_id"
+    t.integer "pagamento_tipo"
+    t.datetime "data_pagamento"
+    t.integer "fattura_n"
+    t.integer "fattura_anno"
+    t.decimal "price_value"
+    t.string "name"
+    t.string "description"
+    t.integer "tipo_prenotazione"
+    t.boolean "public"
+    t.integer "visibility"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_prenotations_on_contact_id"
+    t.index ["event_id"], name: "index_prenotations_on_event_id"
+    t.index ["profile_id"], name: "index_prenotations_on_profile_id"
+    t.index ["slot_id"], name: "index_prenotations_on_slot_id"
+    t.index ["user_id"], name: "index_prenotations_on_user_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title"
@@ -119,8 +198,29 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_143131) do
     t.datetime "updated_at", null: false
     t.integer "calendario_contact_note_id"
     t.integer "calendario_profile_id"
+    t.integer "sublocation_id"
+    t.integer "luogo_n_id"
+    t.integer "event_id"
+    t.integer "responsabile_p_id"
+    t.integer "category_id"
     t.index ["calendar_id"], name: "index_slots_on_calendar_id"
     t.index ["profile_id"], name: "index_slots_on_profile_id"
+  end
+
+  create_table "sublocations", force: :cascade do |t|
+    t.bigint "note_id", null: false
+    t.string "name"
+    t.string "description"
+    t.text "img_quadrata_url"
+    t.text "img_ret_orizzontale"
+    t.text "img_ret_verticale"
+    t.integer "num_posti_max"
+    t.integer "num_location"
+    t.boolean "public"
+    t.integer "visibility"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_sublocations_on_note_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -138,11 +238,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_143131) do
   add_foreign_key "calendars", "profiles"
   add_foreign_key "categories", "calendars"
   add_foreign_key "categories", "profiles"
+  add_foreign_key "contacts", "profiles"
+  add_foreign_key "contacts", "users"
+  add_foreign_key "events", "calendars"
+  add_foreign_key "events", "categories"
+  add_foreign_key "events", "profiles"
   add_foreign_key "notes", "profiles"
   add_foreign_key "noteslots", "notes"
   add_foreign_key "noteslots", "profiles"
   add_foreign_key "noteslots", "slots"
+  add_foreign_key "prenotations", "contacts"
+  add_foreign_key "prenotations", "events"
+  add_foreign_key "prenotations", "profiles"
+  add_foreign_key "prenotations", "slots"
+  add_foreign_key "prenotations", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "slots", "calendars"
   add_foreign_key "slots", "profiles"
+  add_foreign_key "sublocations", "notes"
 end

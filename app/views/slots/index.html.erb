@@ -224,6 +224,12 @@
                                   Visibility
                                 </td>
                                  <td>
+                                  Luogo
+                                </td>
+                                <td>
+                                  Subluogo
+                                </td>
+                                 <td>
                                   Calendario
                                 </td>
                                  <td>
@@ -296,15 +302,10 @@
                                 <td class="px-2 py-2 whitespace-no-wrap">
 
                                     <%= noteslot = slot.noteslots.where(note_type: "evento").first  %>
-                                   <% if noteslot %>
+                                   <% if slot.event %>
                                      
 
-                                    <%= link_to noteslot.note do %>
-                                    <div class="leading-5 text-gray-500 font-medium">   <%= noteslot.note %></div>
-                                    <div class="leading-5 text-gray-900"><%= %>
-                                        <a class="text-blue-500 hover:underline" href="#">#<%= noteslot.note.id %></a></div>
-                                    <div class="leading-5 text-gray-800"><%= noteslot.note.description %></div>
-                                  <% end %>
+                                     <%=  slot.event.name %>
                                   <% else %>
                                     Aggiungi Evento
                                   <% end %>
@@ -317,10 +318,16 @@
                                  <%=  slot.visibility %>
                                 </td>
                                 <td>
-                                  <%= link_to slot.calendar.name, slot.calendar %>
+                                 <%=  link_to slot.luogo.name if slot.luogo %>
+                                </td>
+                                  <td>
+                                   <%=  link_to slot.sublocation.name if slot.sublocation %>
                                 </td>
                                 <td>
-                                  cat
+                                  <%= link_to slot.calendar.name, slot.calendar if slot.calendar %>
+                                </td>
+                                <td>
+                                   <%= link_to slot.category.name, slot.calendar if  slot.category %>
                                 </td>
 
                             </tr>

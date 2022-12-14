@@ -1,0 +1,102 @@
+<%= form_with(model: contact) do |form| %>
+  <% if contact.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+        <% contact.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :referencte_c_id, style: "display: block" %>
+    <%= form.number_field :referencte_c_id %>
+  </div>
+
+  <div>
+    <%= form.label :profile_id, style: "display: block" %>
+    <%= form.text_field :profile_id %>
+  </div>
+
+  <div>
+    <%= form.label :contatto_p_id, style: "display: block" %>
+    <%= form.number_field :contatto_p_id %>
+  </div>
+
+  <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.label :cognome, style: "display: block" %>
+    <%= form.text_field :cognome %>
+  </div>
+
+  <div>
+    <%= form.label :indirizzo, style: "display: block" %>
+    <%= form.text_field :indirizzo %>
+  </div>
+
+  <div>
+    <%= form.label :codice_fiscale, style: "display: block" %>
+    <%= form.text_field :codice_fiscale %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :telefono, style: "display: block" %>
+    <%= form.text_field :telefono %>
+  </div>
+
+  <div>
+    <%= form.label :via, style: "display: block" %>
+    <%= form.text_field :via %>
+  </div>
+
+  <div>
+    <%= form.label :cap, style: "display: block" %>
+    <%= form.text_field :cap %>
+  </div>
+
+  <div>
+    <%= form.label :paese_città, style: "display: block" %>
+    <%= form.text_field :paese_città %>
+  </div>
+
+  <div>
+    <%= form.label :provincia, style: "display: block" %>
+    <%= form.text_field :provincia %>
+  </div>
+
+  <div>
+    <%= form.label :address_complete, style: "display: block" %>
+    <%= form.text_area :address_complete %>
+  </div>
+
+  <div>
+    <%= form.label :latitude, style: "display: block" %>
+    <%= form.text_field :latitude %>
+  </div>
+
+  <div>
+    <%= form.label :longitude, style: "display: block" %>
+    <%= form.text_field :longitude %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -154,7 +154,7 @@
                <li class="items-center">
                  <%= link_to notes_path, class:"text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"  do %>
                     <i class="fas fa-table mr-2 text-sm text-blueGray-300"></i>
-                  Note
+                  Note Risorse
                 <% end %>
               </li>
 
@@ -169,23 +169,40 @@
               <li class="items-center">
                  <%= link_to calendars_path, class:"text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"  do %>
                     <i class="fas fa-table mr-2 text-sm text-blueGray-300"></i>
-                  Calendari 
+                  Profili 
+                <% end %>
+              </li>
+             
+              <li class="items-center">
+                 <%= link_to luoghi_profile_path(current_user.profile), class:"text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"  do %>
+                    <i class="fas fa-table mr-2 text-sm text-blueGray-300"></i>
+                  Luoghi 
                 <% end %>
               </li>
               <li class="items-center">
                  <%= link_to calendars_path, class:"text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"  do %>
+                    <i class="fas fa-table mr-2 text-sm text-blueGray-300"></i>
+                  Calendari 
+                <% end %>
+              </li>
+
+
+
+
+              <li class="items-center">
+                 <%= link_to events_path, class:"text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"  do %>
                     <i class="fas fa-table mr-2 text-sm text-blueGray-300"></i>
                   Evento
                 <% end %>
               </li>
               <li class="items-center">
-                 <%= link_to calendars_path, class:"text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"  do %>
+                 <%= link_to contacts_path, class:"text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"  do %>
                     <i class="fas fa-table mr-2 text-sm text-blueGray-300"></i>
                   Contatti
                 <% end %>
               </li>
               <li class="items-center">
-                 <%= link_to calendars_path, class:"text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"  do %>
+                 <%= link_to prenotations_path, class:"text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"  do %>
                     <i class="fas fa-table mr-2 text-sm text-blueGray-300"></i>
                   Prenotazioni
                 <% end %>

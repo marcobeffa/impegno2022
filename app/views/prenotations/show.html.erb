@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @prenotation %>
+
+<div>
+  <%= link_to "Edit this prenotation", edit_prenotation_path(@prenotation) %> |
+  <%= link_to "Back to prenotations", prenotations_path %>
+
+  <%= button_to "Destroy this prenotation", @prenotation, method: :delete %>
+</div>

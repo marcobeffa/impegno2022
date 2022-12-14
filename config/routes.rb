@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+  resources :sublocations
+  resources :prenotations
+  resources :contacts
+  resources :events
   resources :categories
+
+  
   
   get 'dashboard/index'
   get 'dashboard/note'
@@ -34,6 +40,7 @@ Rails.application.routes.draw do
   resources :notes
   resources :profiles do
     member do
+      get "luoghi"
       get "passate"
       get "future"
       get "settimana"

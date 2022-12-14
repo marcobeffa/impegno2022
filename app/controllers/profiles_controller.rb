@@ -65,6 +65,11 @@ class ProfilesController < ApplicationController
 
   end
 
+ 
+  def luoghi
+    @notes = Note.where(note_type: "luoghi")
+  end 
+
   def settimana
 
     if params[:date]

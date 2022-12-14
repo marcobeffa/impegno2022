@@ -1,0 +1,97 @@
+<%= form_with(model: event) do |form| %>
+  <% if event.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% event.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :profile_id, style: "display: block" %>
+    <%= form.text_field :profile_id %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :image_icona_url, style: "display: block" %>
+    <%= form.text_area :image_icona_url %>
+  </div>
+
+  <div>
+    <%= form.label :image_card_url, style: "display: block" %>
+    <%= form.text_area :image_card_url %>
+  </div>
+
+  <div>
+    <%= form.label :n_partecipanti, style: "display: block" %>
+    <%= form.number_field :n_partecipanti %>
+  </div>
+
+  <div>
+    <%= form.label :n_conduttori, style: "display: block" %>
+    <%= form.number_field :n_conduttori %>
+  </div>
+
+  <div>
+    <%= form.label :durata_minuti, style: "display: block" %>
+    <%= form.number_field :durata_minuti %>
+  </div>
+
+  <div>
+    <%= form.label :indirizzo, style: "display: block" %>
+    <%= form.text_area :indirizzo %>
+  </div>
+
+  <div>
+    <%= form.label :luogo, style: "display: block" %>
+    <%= form.text_area :luogo %>
+  </div>
+
+  <div>
+    <%= form.label :paese, style: "display: block" %>
+    <%= form.text_field :paese %>
+  </div>
+
+  <div>
+    <%= form.label :prezzo_pieno, style: "display: block" %>
+    <%= form.text_field :prezzo_pieno %>
+  </div>
+
+  <div>
+    <%= form.label :prezzo_bambini, style: "display: block" %>
+    <%= form.text_field :prezzo_bambini %>
+  </div>
+
+  <div>
+    <%= form.label :calendar_id, style: "display: block" %>
+    <%= form.text_field :calendar_id %>
+  </div>
+
+  <div>
+    <%= form.label :category_id, style: "display: block" %>
+    <%= form.text_field :category_id %>
+  </div>
+
+  <div>
+    <%= form.label :data_conferma, style: "display: block" %>
+    <%= form.datetime_field :data_conferma %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

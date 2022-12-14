@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @event %>
+
+     <div class="w-full md:w-1/2 lg:w-1/4 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2">
+      <div class="bg-white rounded-lg m-h-64 p-2 transform hover:translate-y-2 hover:shadow-xl transition duration-300">
+        <figure class="mb-2">
+          <img src=" <%= @event.image_card_url %>" alt="" class="h-64 ml-auto mr-auto" />
+        </figure>
+        <div class="rounded-lg p-4 bg-purple-700 flex flex-col">
+          <div>
+            <h5 class="text-white text-2xl font-bold leading-none">
+              <%= @event.name %>
+            </h5>
+            <span class="text-xs text-gray-400 leading-none"> <%= @event.description %></span>
+          </div>
+          <div class="flex items-center">
+            <div class="text-lg text-white font-light">
+              € <%= @event.prezzo_pieno %>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+<div>
+  <%= link_to "Edit this event", edit_event_path(@event) %> |
+  <%= link_to "Back to events", events_path %>
+
+  <%= button_to "Destroy this event", @event, method: :delete %>
+</div>

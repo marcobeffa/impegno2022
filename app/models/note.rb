@@ -1,5 +1,8 @@
 class Note < ApplicationRecord
   belongs_to :profile
+  has_many :sublocations
+  has_many :slots, -> { where "note_type = luoghi" }, class_name: 'Slot' 
+ 
   
   
 

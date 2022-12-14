@@ -5,6 +5,8 @@ class Profile < ApplicationRecord
   has_many :calendars
   has_many :slots
   has_many :categories
+  has_many :events
+  
   
 
   validates :username, uniqueness: true, presence: true, format: { with: /\A[a-z0-9_]+\z/,

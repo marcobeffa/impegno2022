@@ -1,15 +1,17 @@
 <div id="<%= dom_id slot %>">
   <p>
-    <strong>Profile:</strong>
-    <%= slot.profile_id %>
+    <h2>Profile:</h2>
+    <%= slot.profile.username %>
   </p>
 
+
+<h3>Profilo responsabile</h3> 
   <p>
     <strong>Contatto note_id referente calendario:</strong>
     <%= slot.calendario_contact_note_id %>
   </p>
 
-<p>
+  <p>
     <strong>Profilo referente calendario:</strong>
     <%= slot.calendario_profile_id %>
   </p>
@@ -18,10 +20,22 @@
 
 
   <p>
-    <strong>Calendar:</strong>
+    <h2>Calendario:</h2>
     <%= link_to slot.calendar.name, slot.calendar %>
+<br>
+    <b>Categoria:</b>
+      <%= link_to slot.category.name, slot.category if slot.category %>
   </p>
 
+    <h2>Luogo:</h2>
+    <%= link_to slot.luogo.name, slot.luogo if slot.luogo%>
+    <br>
+    <b>Sublocation:</b>
+      <%= link_to slot.sublocation.name, slot.sublocation  if slot.sublocation %>
+  </p>
+<h2>Evento:</h2>
+    <%= link_to slot.event.name, slot.event if slot.event%>
+    <br>
   <p>
     <strong>Public:</strong>
     <%= slot.public %>

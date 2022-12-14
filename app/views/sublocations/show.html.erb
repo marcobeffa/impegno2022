@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @sublocation %>
+
+<div>
+  <%= link_to "Edit this sublocation", edit_sublocation_path(@sublocation) %> |
+  <%= link_to "Back to sublocations", sublocations_path %>
+
+  <%= button_to "Destroy this sublocation", @sublocation, method: :delete %>
+</div>
