@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   resources :notes
   resources :profiles do
     member do
+      get "pubcalendar"
+      get "pastcalendar"
       get "luoghi"
       get "passate"
       get "future"
@@ -50,14 +52,18 @@ Rails.application.routes.draw do
   devise_for :users
   get 'pages/home'
   get 'pages/about'
+  get 'pages/calendar'
+  get 'pages/pastcalendar'
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "pages#home"
-  authenticate :user do
-    root "dashboard#index", as: :authenticated_root
-  end
+  # root "pages#home"
+
+  root "pages#calendar"
+  # authenticate :user do
+   # root "dashboard#index", as: :authenticated_root
+  # end
 
   
 

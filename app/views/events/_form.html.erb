@@ -78,7 +78,8 @@
 
   <div>
     <%= form.label :calendar_id, style: "display: block" %>
-    <%= form.text_field :calendar_id %>
+     <%= form.collection_select :calendar_id, current_user.profile.calendars, :id, :name, {  prompt: "Scegli la stanza o la sublocation"}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    
   </div>
 
   <div>

@@ -38,7 +38,12 @@
 
   <div>
     <%= form.label :calendar_id, style: "display: block" %>
-    <%= form.text_field :calendar_id, value: params[:calendar_id] %>
+    <% if params[:calendar_id]  %>
+      <%= form.text_field :calendar_id, value: params[:calendar_id] %>
+    <% else %>
+       <%= form.text_field :calendar_id %>
+    <% end %>
+    
   </div>
 
   <div>

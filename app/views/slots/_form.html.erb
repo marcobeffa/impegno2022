@@ -109,7 +109,7 @@
   <div>
     <%= form.label :event_id, style: "display: block" %>
    
-      <%= form.collection_select :event_id, current_user.profile.events, :id, :name, {  prompt: "Scegli L'evento "}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", required: true %>
+      <%= form.collection_select :event_id, current_user.profile.events, :id, :name, {  prompt: "Scegli L'evento "}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     
   </div>
 

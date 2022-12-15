@@ -1,0 +1,123 @@
+
+<div class="mx-auto pt-8">
+<%= image_tag 'home/gdc_logo.png', style: "width:400px;" %>
+
+</div>
+<h4 class="text-center p-4">Attività per lo sviluppo armonico dell'essere umano.</h4>
+
+<h3 class="text-center p-4"><%= DateTime.now.strftime("%A %d - %B - %Y")%></h3>
+
+<div class="mx-auto  text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+    <ul class="list-none flex flex-wrap -mb-px">
+      
+              
+            <!--- menù pubblico -->
+						  <% if  controller_name == "profiles" && action_name == "pastcalendar" %>
+              <li class="mr-2">
+                <%= link_to 'Passate', pastcalendar_profile_path(@profile), class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                
+                
+              </li>
+            <% else %>
+              <li class="mr-2">
+                <%= link_to 'Passate', pastcalendar_profile_path(@profile),  class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+              </li>
+            
+            <% end %>
+
+            <% if controller_name == "profiles" && action_name == "pubcalendar" %>
+              <li class="mr-2">
+                <%= link_to 'Future', pubcalendar_profile_path(@profile), class:"inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" %>
+                
+                
+              </li>
+            <% else %>
+              <li class="mr-2">
+                <%= link_to 'Future', pubcalendar_profile_path(@profile), class:"inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" %>   
+              </li>
+              
+            <% end %>
+            
+            
+      
+            
+
+        
+    
+
+        
+    
+      
+        
+      
+      
+    </ul>
+</div>
+
+
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="-my-8 divide-y-2 divide-gray-100">
+			
+			<% @slots.each do |slot|%>
+
+				<div class="py-8 flex flex-wrap md:flex-nowrap">
+					<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+            <h4 class="font-semibold title-font text-gray-700"><%= slot.calendar.name if slot.calendar %> - <%= slot.category.name if slot.category %></h4>
+					
+            	<span class="mt-1 text-gray-500 font-extrabold"><%= slot.data_start.strftime("%B %Y") %>
+						<h3 class=" text-gray-500"> <%= slot.data_start.strftime("%a %d") %></h3>
+						<h3 class=" text-gray-500 text-sm"> <%= slot.data_start.strftime("%H:%M") %> - <%= slot.data_end.strftime("%H:%M") if slot.data_end %></h3>
+					
+						
+						</span>
+					
+					
+					</div>
+				<!-- component -->
+					<div class="w-full lg:flex">
+						<div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('https://tailwindcss.com/img/card-left.jpg')" title="Woman holding a mug">
+						</div>
+						<div class="w-full border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+							<div class="mb-8">
+								<!--p class="text-sm text-grey-dark flex items-center">
+									<svg class="text-grey w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+										<path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
+									</svg>
+									Members only
+								</p-->
+								<div class="text-black font-bold text-xl mb-2"><%= slot.event.name if slot.event %></div>
+								<p class="text-grey-darker text-base"><%= slot.event.description if slot.event %></p>
+                <h3><%= slot.event.prezzo_pieno if slot.event %></h3>
+							</div>
+              
+              <% if slot.calendario_profile_id %>
+                <div class="flex items-center">
+                  <img class="w-10 h-10 rounded-full mr-4" src="<%= Profile.find(slot.calendario_profile_id).avatar_url %>" alt="">
+                  <div class="text-sm">
+                    <p class="text-black leading-none"><%= Profile.find(slot.calendario_profile_id).username %></p>
+                    <!--p class="text-grey-dark">Aug 18</p-->
+                  </div>
+                </div>
+
+              <% else %>
+
+                 <div class="flex items-center">
+                  <img class="w-10 h-10 rounded-full mr-4" src="<%= slot.profile.avatar_url %>" alt="">
+                  <div class="text-sm">
+                    <p class="text-black leading-none"><%= slot.profile.username %></p>
+                    <!--p class="text-grey-dark">Aug 18</p-->
+                  </div>
+                </div>
+
+              <% end %>
+              
+						
+						</div>
+					</div>
+				</div>
+			<% end %>
+      
+    </div>
+  </div>
+</section>
