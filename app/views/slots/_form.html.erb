@@ -80,7 +80,7 @@
 <div>
     <%= form.label :luogo_n_id, style: "display: block" %>
    
-      <%= form.collection_select :luogo_n_id, current_user.profile.notes.where(note_type: "luoghi"), :id, :name, {  prompt: "Scegli il Luogo"}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", required: true %>
+      <%= form.collection_select :luogo_n_id, current_user.profile.notes.where(note_type: "luoghi"), :id, :name, {  prompt: "Scegli il Luogo"}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     
   </div>
 

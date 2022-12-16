@@ -86,7 +86,14 @@
 									</svg>
 									Members only
 								</p-->
-								<div class="text-black font-bold text-xl mb-2"><%= slot.event.name if slot.event %></div>
+                
+                <% if slot.event  %>
+                    <% link_to slot.event do %>
+                    <div class="text-black font-bold text-xl mb-2"><%= slot.event.name if slot.event %></div>
+                  <% end %>
+                <% end %>
+                
+               
 								<p class="text-grey-darker text-base"><%= slot.event.description if slot.event %></p>
                 <h3><%= slot.event.prezzo_pieno if slot.event %></h3>
 							</div>

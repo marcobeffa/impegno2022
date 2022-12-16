@@ -8,3 +8,5 @@
 
   <%= button_to "Destroy this profile", @profile, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
 </div>
+
+<%= link_to 'Date', pubcalendar_profile_path(@profile) %>
