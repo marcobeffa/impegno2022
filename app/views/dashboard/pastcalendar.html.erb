@@ -151,7 +151,20 @@
 
 
                         <tbody class="">
+                        
                           <% @slots.each do |slot| %>
+                          <% if slot.data_start.strftime("%A - %d %b %Y") != @data_s_slot %>
+                            
+                      
+                            <tr> 
+                            <td colspan="4" class="pl-4"> 
+                              <h4 class=""><%= slot.data_start.strftime("%A - %d %b %Y") if slot.data_start %>
+                               </h4>
+                            </td>
+                               </tr>
+                            <%  @data_s_slot = slot.data_start.strftime("%A - %d %b %Y") %>
+                          <% end %>
+                        
                               <tr class="relative transform scale-100
                                         text-xs py-1 border-b-2 
                                         <% if slot.data_start && slot.data_end %>
@@ -171,7 +184,7 @@
                                   
                                   
                                   
-                                    <h4 class=""><%= slot.data_start.strftime("%a - %d %b %Y") if slot.data_start %> </h4>
+                                   
                                     <%= slot.data_start.strftime("%H:%M") if slot.data_start %>
                                     <div><%= slot.data_end.strftime("%H:%M") if slot.data_end %></div>
 
@@ -184,7 +197,7 @@
                                 <td>
                                     <% if slot.calendario_profile_id %>
                                        <% prof = Profile.find(slot.calendario_profile_id) %>
-                                       <%= link_to  profile_path(prof) do %> 
+                                       <%= link_to  profslot_profile_path(prof) do %> 
                                         <div class="flex">
                                         <div>
                                        
@@ -199,7 +212,7 @@
                                         <% end %>
                                     <% elsif slot.calendario_contact_note_id %>
                                        <% prof = Profile.find(slot.calendario_profile_id) %>
-                                           <%= link_to profile_path(prof) do %> 
+                                           <%= link_to profslot_profile_path(prof) do %> 
                                         <div class="flex">
                                         <div>
                                         <img src="<%= prof.avatar_url %>" alt="Display Picture of Andres Berlin" role="img" class="rounded-full w-8 h-8 shadow-md" />

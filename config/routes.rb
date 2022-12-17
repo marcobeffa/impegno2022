@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'dashboard/luoghi'
   get 'dashboard/abilita'
   get 'dashboard/attivita'
+  get 'dashboard/pastcalendar'
   resources :noteslots
   resources :slots
   get 'privata/pastslot'
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
   resources :notes
   resources :profiles do
     member do
+      get "profslot"
       get "pubcalendar"
       get "pastcalendar"
       get "luoghi"
